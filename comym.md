@@ -62,10 +62,10 @@ I love the sea, food, music, live concerts, art galleries, audio and visual gear
 - Senior Design Manager, Accenture Song
 - Principal Designer, WovenLight
 - Principal Designer, McKinsey & Company
-- Art Director, Google - Google Creative Lab
+- Art Director, Google | Google Creative Lab
 - Creative, Google - The Zoo
 - Creative, Wieden+Kennedy
-- Lead Designer, TBWA/Media Arts Lab
+- Lead Designer, TBWA/Media Arts Lab | Apple
 - Lead Designer, Publicis Sapient
 - Lead Product Designer, Songkick
 - Lead Product Designer, Buzzbike
