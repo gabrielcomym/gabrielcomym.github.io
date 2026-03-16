@@ -190,6 +190,7 @@ downloadButton?.addEventListener("click", () => {
 });
 truncateExternalLinkUrls();
 updateTerminalLoginLines();
+
 renderBootSnippets();
 window.setInterval(updateTerminalLoginLines, 1000);
 
