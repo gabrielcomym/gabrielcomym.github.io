@@ -13,7 +13,7 @@ const ICON_SWAP_DURATION = 140;
 let downloadFeedbackTimeoutId;
 const MAX_VISIBLE_URL_LENGTH = 50;
 const bootSnippets = [
-  [["muted", "1"], ["accent", "+"], ["plain", " const "], ["blue", "bootConfig"], ["plain", " = { "], ["blue", "entry"], ["plain", ": "], ["orange", "\"about\""], ["plain", ", "], ["blue", "mode"], ["plain", ": "], ["orange", "\"terminal\""], ["plain", " };"]],
+  [["muted", "1"], ["accent", "+"], ["plain", " const "], ["blue", "bootConfig"], ["plain", " = { "], ["blue", "entry"], ["plain", ": "], ["orange", "\"portfolio\""], ["plain", ", "], ["blue", "mode"], ["plain", ": "], ["orange", "\"terminal\""], ["plain", " };"]],
   [["muted", "2"], ["accent", "+"], ["plain", " const "], ["blue", "root"], ["plain", " = "], ["blue", "document"], ["plain", "."], ["blue", "documentElement"], ["plain", ";"]],
   [["muted", "3"], ["accent", "+"], ["plain", " const "], ["blue", "page"], ["plain", " = "], ["blue", "document"], ["plain", "."], ["blue", "querySelector"], ["plain", "("], ["orange", "\".page\""], ["plain", ");"]],
   [["muted", "4"], ["accent", "+"], ["plain", " const "], ["blue", "bootScreen"], ["plain", " = "], ["blue", "document"], ["plain", "."], ["blue", "querySelector"], ["plain", "("], ["orange", "\"[data-boot-screen]\""], ["plain", ");"]],

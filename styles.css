@@ -93,19 +93,19 @@ body.is-booting .page {
 }
 
 .boot-screen__token--muted {
-  color: #8b949e;
+  color: #ff6b6b;
 }
 
 .boot-screen__token--accent {
-  color: #7bf1a8;
+  color: #ff6b6b;
 }
 
 .boot-screen__token--blue {
-  color: #8ab4ff;
+  color: #4ea1ff;
 }
 
 .boot-screen__token--orange {
-  color: #f2b56b;
+  color: #ff9f43;
 }
 
 .boot-screen__status {
