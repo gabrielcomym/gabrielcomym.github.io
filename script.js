@@ -197,6 +197,10 @@ if ("scrollRestoration" in window.history) {
 window.scrollTo(0, 0);
 
 const activateMainLinkCard = (card) => {
+  if (card.hasAttribute("data-private-project")) {
+    return;
+  }
+
   const titleLink = card.querySelector(".main-link__title");
   if (!titleLink) return;
 
@@ -212,10 +216,15 @@ const activateMainLinkCard = (card) => {
 };
 
 mainLinkCards.forEach((card) => {
-  card.tabIndex = 0;
+  if (!card.hasAttribute("data-private-project")) {
+    card.tabIndex = 0;
+  }
 
   card.addEventListener("click", (event) => {
-    if (event.target instanceof Element && event.target.closest(".main-link__title")) {
+    if (
+      event.target instanceof Element &&
+      event.target.closest('a.main-link__title[href]')
+    ) {
       return;
     }
 
