@@ -21,15 +21,20 @@ Throughout my career I’ve been strongly influenced by modernism, typographic d
 
 I’m currently based across ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~ and Brazil, and I enjoy travelling and getting to know different cultures.
 
-I love the sea, food, music, live concerts, art galleries, audio and visual gear, and having a good time with friends and family.
+I love the sea, music, food, art galleries, book shops, audio and visual gear and having a good time with friends and family.
 
 ## WORK
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
+  Live Kedro Viz demo for exploring pipelines, lineage and modular workflows.
 - [Kedro / Experiment Tracking](./case-studies/kedro_experiment_tracking_case_study.md)
+  Integrating experiment tracking and model performance into Kedro Viz.
 - [Kedro / Modular Pipelines](./case-studies/kedro_modular_pipelines_case_study.md)
+  Making modular pipelines easier to understand, navigate and explain.
 - [WovenLight / Rapid Diagnostic Reports](./case-studies/wovenlight_rapid_diagnostic_reports_case_study.md)
+  AI-native internal product for rapid diagnostics, summaries and commercial storytelling.
 - [WovenLight / Rebranding](./case-studies/wovenlight_rebranding_case_study.md)
+  Brand system evolution to improve trust, consistency and investment readiness.
 
 ## Selected Clients and Users
 
@@ -182,16 +187,6 @@ Interactive art direction, creative and product design for VR, web, and native a
 > Leon Bayliss  
 > Product Designer | Engineer at Meta
 
-> "Any company that values design understands what it can achieve and knows that it takes time, space and trust will be bloody lucky to have him as part of their team."
->
-> Andy Davies  
-> Design Principal at The London Stock Exchange
-
-> "A positive, enthusiastic team player with lots of strategies to generate ideas and make working both fun and productive. He's a lovely person to have in the office and can present art work to a high standard."
->
-> Aimee Lewis  
-> Senior Copywriter | Creative Director at Meta
-
 > "Gabriel is brilliant. Not only is he a superbly talented designer, he's a great guy too."
 >
 > Jaimes Leggett  
@@ -201,8 +196,3 @@ Interactive art direction, creative and product design for VR, web, and native a
 >
 > Sibylle Tretera  
 > Head of Creative Strategy at Pinterest
-
-> "A flair for the conceptual, as well as design, means his ideas are always communicated to the highest level. He is also a joy to work with and I hope I get to work with him again."
->
-> Sarah Dunleavy  
-> Design Director at Deliveroo

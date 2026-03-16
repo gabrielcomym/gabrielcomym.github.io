@@ -3,7 +3,7 @@ const markdownSource = markdownSourceNode?.value ?? "";
 
 const downloadButton = document.querySelector("[data-download-markdown]");
 const terminalLoginLines = Array.from(document.querySelectorAll("[data-terminal-login]"));
-const externalLinkUrls = Array.from(document.querySelectorAll(".external-link__url"));
+const externalLinkUrls = Array.from(document.querySelectorAll(".main-link__url"));
 const bootScreen = document.querySelector("[data-boot-screen]");
 const bootCode = document.querySelector("[data-boot-code]");
 const DOWNLOAD_FEEDBACK_DURATION = 2200;
@@ -11,26 +11,24 @@ const BOOT_SCREEN_MIN_DURATION = 1040;
 const BOOT_SCREEN_FADE_DURATION = 140;
 const ICON_SWAP_DURATION = 140;
 let downloadFeedbackTimeoutId;
-const MAX_VISIBLE_URL_LENGTH = 50;
+const MAX_VISIBLE_URL_LENGTH = 60;
 const bootSnippets = [
-  [["muted", "1"], ["accent", "+"], ["plain", " const "], ["blue", "bootConfig"], ["plain", " = { "], ["blue", "entry"], ["plain", ": "], ["orange", "\"portfolio\""], ["plain", ", "], ["blue", "mode"], ["plain", ": "], ["orange", "\"terminal\""], ["plain", " };"]],
-  [["muted", "2"], ["accent", "+"], ["plain", " const "], ["blue", "root"], ["plain", " = "], ["blue", "document"], ["plain", "."], ["blue", "documentElement"], ["plain", ";"]],
-  [["muted", "3"], ["accent", "+"], ["plain", " const "], ["blue", "page"], ["plain", " = "], ["blue", "document"], ["plain", "."], ["blue", "querySelector"], ["plain", "("], ["orange", "\".page\""], ["plain", ");"]],
-  [["muted", "4"], ["accent", "+"], ["plain", " const "], ["blue", "bootScreen"], ["plain", " = "], ["blue", "document"], ["plain", "."], ["blue", "querySelector"], ["plain", "("], ["orange", "\"[data-boot-screen]\""], ["plain", ");"]],
-  [["muted", "5"], ["accent", "+"], ["plain", " const "], ["blue", "modules"], ["plain", " = ["], ["orange", "\"about\""], ["plain", ", "], ["orange", "\"work\""], ["plain", ", "], ["orange", "\"download\""], ["plain", ", "], ["orange", "\"video\""], ["plain", "];"]],
-  [["muted", "6"], ["accent", "+"], ["plain", " await "], ["blue", "document"], ["plain", "."], ["blue", "fonts"], ["plain", "."], ["blue", "ready"], ["plain", ";"]],
-  [["muted", "7"], ["accent", "+"], ["plain", " "], ["blue", "root"], ["plain", "."], ["blue", "dataset"], ["plain", "."], ["blue", "state"], ["plain", " = "], ["orange", "\"booting\""], ["plain", ";"]],
-  [["muted", "8"], ["accent", "+"], ["plain", " "], ["blue", "modules"], ["plain", "."], ["blue", "forEach"], ["plain", "((module, index) => {"]],
-  [["muted", "9"], ["accent", "+"], ["plain", "   "], ["blue", "console"], ["plain", "."], ["blue", "log"], ["plain", "("], ["orange", "\"mount:\""], ["plain", ", module, index);"]],
-  [["muted", "10"], ["accent", "+"], ["plain", " });"]],
-  [["muted", "11"], ["accent", "+"], ["plain", " "], ["blue", "hydrateNavigation"], ["plain", "("], ["blue", "bootConfig"], ["plain", "."], ["blue", "entry"], ["plain", ");"]],
-  [["muted", "12"], ["accent", "+"], ["plain", " "], ["blue", "hydrateContentPanels"], ["plain", "();"]],
-  [["muted", "13"], ["accent", "+"], ["plain", " "], ["blue", "hydrateExternalLinks"], ["plain", "();"]],
-  [["muted", "14"], ["accent", "+"], ["plain", " "], ["blue", "hydrateDownloadAction"], ["plain", "();"]],
-  [["muted", "15"], ["accent", "+"], ["plain", " "], ["blue", "page"], ["plain", "."], ["blue", "classList"], ["plain", "."], ["blue", "remove"], ["plain", "("], ["orange", "\"is-hidden\""], ["plain", ");"]],
-  [["muted", "16"], ["accent", "+"], ["plain", " "], ["blue", "bootScreen"], ["plain", "."], ["blue", "classList"], ["plain", "."], ["blue", "add"], ["plain", "("], ["orange", "\"is-leaving\""], ["plain", ");"]],
-  [["muted", "17"], ["accent", "+"], ["plain", " "], ["blue", "root"], ["plain", "."], ["blue", "dataset"], ["plain", "."], ["blue", "state"], ["plain", " = "], ["orange", "\"ready\""], ["plain", ";"]],
-  [["muted", "18"], ["accent", "+"], ["plain", " export "], ["blue", "default"], ["plain", " bootConfig;"]],
+  [["muted", "1"], ["plain", "[init]"], ["plain", " starting portfolio runtime"]],
+  [["muted", "2"], ["plain", "[init]"], ["plain", " loading content manifest"]],
+  [["muted", "3"], ["plain", "[ok]"], ["plain", " fonts ready"]],
+  [["muted", "4"], ["plain", "[ok]"], ["plain", " intro block mounted"]],
+  [["muted", "5"], ["plain", "[ok]"], ["plain", " work index mounted"]],
+  [["muted", "6"], ["plain", "[ok]"], ["plain", " client list mounted"]],
+  [["muted", "7"], ["plain", "[ok]"], ["plain", " career highlights mounted"]],
+  [["muted", "8"], ["plain", "[ok]"], ["plain", " awards block mounted"]],
+  [["muted", "9"], ["plain", "[ok]"], ["plain", " writing index mounted"]],
+  [["muted", "10"], ["plain", "[ok]"], ["plain", " testimonials mounted"]],
+  [["muted", "11"], ["plain", "[ok]"], ["plain", " terminal footer attached"]],
+  [["muted", "12"], ["plain", "[ok]"], ["plain", " media layer attached"]],
+  [["muted", "13"], ["plain", "[sync]"], ["plain", " link map verified"]],
+  [["muted", "14"], ["plain", "[sync]"], ["plain", " markdown export ready"]],
+  [["muted", "15"], ["plain", "[sync]"], ["plain", " download action bound"]],
+  [["muted", "16"], ["plain", "[ready]"], ["plain", " portfolio mounted at /"]],
 ];
 
 const escapeHtml = (value) =>
