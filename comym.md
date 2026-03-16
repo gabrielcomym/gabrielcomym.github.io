@@ -4,22 +4,24 @@
 
 - Email: [gabrielcomym@gmail.com](mailto:gabrielcomym@gmail.com)
 - LinkedIn: [linkedin.com/in/gabrielcomym](https://www.linkedin.com/in/gabrielcomym/)
-- Portfolio: [www.comym.co](http://www.comym.co)
+- Portfolio: [www.comym.co](https://www.comym.co)
 - Phone: +55 11 99438 0079
 
 ## Overview
 
-I’m a product design expert and creative with 20 years of experience, with seven of those dedicated to advanced analytics.
+I’m a product designer and creative director with 20 years of experience, including seven focused on advanced analytics, AI systems and technical product design.
 
-My work focuses on design direction for AI-driven products across machine learning, GenAI and agentic applications, with a strong focus on AI tools and frameworks for image and video creation. I specialise in crafting user-centred experiences for highly technical audiences in the technology and financial sectors.
+My work spans machine learning, GenAI and agentic applications, with a focus on shaping clear, human-centred experiences for complex products in technology and financial services.
 
-Recently, I served as a Principal Designer at [McKinsey & Company](https://www.mckinsey.com/) and as a judge for the [Webby Awards](https://www.webbyawards.com/), [FWA](https://thefwa.com/) and [Awwwards](https://www.awwwards.com/). As former [Kedro](https://kedro.org/) Design Lead, I contributed to the growth of [Linux Foundation AI & Data](https://lfaidata.foundation/) and supported open-source innovation in AI and machine learning.
+Products I’ve designed are used by organisations including NASA, Apple, Google, Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull, HSBC, Santander and Barclays.
 
-Previously, as a creative and art director, I collaborated with teams at [TBWA\Media Arts Lab](https://www.mediaartslab.com/), [Wieden+Kennedy](https://www.wk.com/), [Google Creative Lab](https://www.creativelab5.com/) and many more.
+More recently, I served as a Principal Designer at [McKinsey & Company](https://www.mckinsey.com/) and as a judge for the [Webby Awards](https://www.webbyawards.com/), [FWA](https://thefwa.com/) and [Awwwards](https://www.awwwards.com/). As former [Kedro](https://kedro.org/) Design Lead, I contributed to the growth of [Linux Foundation AI & Data](https://lfaidata.foundation/) and helped drive open-source innovation in AI and machine learning.
 
-Throughout my career I’ve been strongly influenced by modernism, typographic discipline, simplicity, form, function, grid systems and basic geometry. The Swiss school of design remains a central reference in the way I approach visual systems and product design.
+I’ve also worked with creative teams at [TBWA\Media Arts Lab](https://www.mediaartslab.com/), [Wieden+Kennedy](https://www.wk.com/) and [Google Creative Lab](https://www.creativelab5.com/).
 
-I’m currently based across ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~ and Brazil, and I enjoy travelling and getting to know different cultures.
+My approach is shaped by modernism, typographic discipline, simplicity, form, function, grid systems and geometry. The Swiss school remains a strong influence on how I think about visual systems and product design.
+
+I’m currently based in ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~, Brazil, and I enjoy travelling and getting to know different cultures.
 
 I love the sea, music, food, art galleries, book shops, audio and visual gear and having a good time with friends and family.
 
@@ -27,13 +29,13 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
   Live Kedro Viz demo for exploring pipelines, lineage and modular workflows.
-- [Kedro / Experiment Tracking](./case-studies/kedro_experiment_tracking_case_study.md)
+- [Kedro / Experiment Tracking](https://comym.co/work/kedro-experiment-tracking/)
   Integrating experiment tracking and model performance into Kedro Viz.
-- [Kedro / Modular Pipelines](./case-studies/kedro_modular_pipelines_case_study.md)
+- [Kedro / Modular Pipelines](https://comym.co/work/kedro-modular-pipelines/)
   Making modular pipelines easier to understand, navigate and explain.
-- [WovenLight / Rapid Diagnostic Reports](./case-studies/wovenlight_rapid_diagnostic_reports_case_study.md)
+- [WovenLight / Rapid Diagnostic Reports](https://comym.co/work/wovenlight-rapid-diagnostic-reports/)
   AI-native internal product for rapid diagnostics, summaries and commercial storytelling.
-- [WovenLight / Rebranding](./case-studies/wovenlight_rebranding_case_study.md)
+- [WovenLight / Rebranding](https://comym.co/work/wovenlight-rebranding/)
   Brand system evolution to improve trust, consistency and investment readiness.
 
 ## Selected Clients and Users
@@ -84,7 +86,7 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 
 ## Writing
 
-- [Thoughts on The Canon](https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b)
+- [Thoughts on The Canon](https://gabrielcomym.medium.com/thoughts-on-the-canon-exploring-the-interplay-of-form-and-function-d6730a506ce1)
 - [Digital Aesthetics](https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b)
 
 ## Education
@@ -137,20 +139,16 @@ Interactive art direction, creative and product design for VR, web, and native a
 
 ## Awards and Recognition
 
-- AI Awards - Gold - Best Technical Tool or Framework for AI
-- Fast Company Innovation by Design Award - Honour
-- D&AD White Pencil - Creativity for Good
-- Cannes Lions - Digital & Social - Shortlist
-- Campaign Event Awards - Gold
-- Lovie Awards - Gold
-- FWA - Site Of The Day
-- Behance Graphic Design
-- Behance Interactive
-- Behance Motion
-- Colunistas Awards - Grand Prix
-- Colunistas Awards - Gold
-- Colunistas Awards - Silver
-- Brazilian Advertising Festival - Bronze
+- AI Awards
+- Fast Company Innovation by Design Award
+- D&AD White Pencil
+- Cannes Lions
+- Campaign Event Awards
+- Lovie Awards
+- FWA
+- Behance
+- Colunistas Awards
+- Brazilian Advertising Festival
 
 ## Latest Certifications
 

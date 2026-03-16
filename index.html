@@ -8,16 +8,80 @@
       name="description"
       content="Human-Centered Design. AI-Powered Systems."
     />
+    <meta
+      name="robots"
+      content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+    />
+    <link rel="canonical" href="https://comym.co/" />
     <meta property="og:title" content="Comym" />
     <meta property="og:description" content="Human-Centered Design. AI-Powered Systems." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gabrielcomym.github.io/" />
-    <meta property="og:image" content="https://gabrielcomym.github.io/thumbnail.jpg" />
+    <meta property="og:url" content="https://comym.co/" />
+    <meta property="og:image" content="https://comym.co/thumbnail.jpg" />
     <meta property="og:image:alt" content="Comym portfolio preview" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Comym" />
     <meta name="twitter:description" content="Human-Centered Design. AI-Powered Systems." />
-    <meta name="twitter:image" content="https://gabrielcomym.github.io/thumbnail.jpg" />
+    <meta name="twitter:image" content="https://comym.co/thumbnail.jpg" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://comym.co/#website",
+            "url": "https://comym.co/",
+            "name": "Comym",
+            "description": "Human-Centered Design. AI-Powered Systems.",
+            "inLanguage": "en",
+            "publisher": {
+              "@id": "https://comym.co/#person"
+            }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://comym.co/#profile",
+            "url": "https://comym.co/",
+            "name": "Comym",
+            "isPartOf": {
+              "@id": "https://comym.co/#website"
+            },
+            "about": {
+              "@id": "https://comym.co/#person"
+            },
+            "mainEntity": {
+              "@id": "https://comym.co/#person"
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://comym.co/#person",
+            "name": "Gabriel Comym",
+            "url": "https://comym.co/",
+            "image": "https://comym.co/thumbnail.jpg",
+            "email": "mailto:gabrielcomym@gmail.com",
+            "jobTitle": "Principal Designer",
+            "description": "Product designer and creative working across AI-powered systems, machine learning, GenAI and agentic applications.",
+            "knowsAbout": [
+              "Human-centered design",
+              "AI-powered systems",
+              "Product design",
+              "Creative direction",
+              "Machine learning",
+              "GenAI",
+              "Agentic systems",
+              "Design systems",
+              "Interaction design"
+            ],
+            "sameAs": [
+              "https://github.com/gabrielcomym",
+              "https://www.linkedin.com/in/gabrielcomym/",
+              "https://gabrielcomym.medium.com/"
+            ]
+          }
+        ]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,7 +103,21 @@
         </p>
       </div>
     </div>
-    <main class="page">
+    <main class="page page--video-first">
+      <section class="hero-video" aria-label="Featured video">
+        <div class="hero-video__frame">
+          <video
+            class="hero-video__media"
+            src="./video.mov"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          ></video>
+        </div>
+      </section>
+      <div class="page__content">
       <article class="sheet" id="top">
         <header class="sheet__header">
           <div class="sheet__brand">
@@ -47,15 +125,39 @@
           </div>
           <div class="sheet__actions" aria-label="Document actions">
             <div class="sheet__action-row">
-              <button
-                class="icon-button"
-                type="button"
-                data-download-markdown
-                aria-label="Download page content as markdown"
-              >
-                <i data-lucide="download" aria-hidden="true"></i>
-              </button>
-              <div class="icon-tooltip" aria-hidden="true">Download CV</div>
+              <div class="icon-control">
+                <a
+                  class="icon-button"
+                  href="https://github.com/gabrielcomym"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Gabriel Comym on GitHub"
+                >
+                  <img src="./github-invertocat-white.svg" alt="" aria-hidden="true" />
+                </a>
+                <div class="icon-tooltip" aria-hidden="true">Github</div>
+              </div>
+              <div class="icon-control">
+                <a
+                  class="icon-button"
+                  href="mailto:gabrielcomym@gmail.com"
+                  aria-label="Email Gabriel Comym"
+                >
+                  <i data-lucide="mail" aria-hidden="true"></i>
+                </a>
+                <div class="icon-tooltip" aria-hidden="true">Contact</div>
+              </div>
+              <div class="icon-control">
+                <button
+                  class="icon-button"
+                  type="button"
+                  data-download-markdown
+                  aria-label="Download page content as markdown"
+                >
+                  <i data-lucide="download" aria-hidden="true"></i>
+                </button>
+                <div class="icon-tooltip" aria-hidden="true">Download CV</div>
+              </div>
             </div>
           </div>
         </header>
@@ -63,24 +165,24 @@
         <section class="block block--framed">
           <h1>Human-Centered Design.<br />AI-Powered Systems.</h1>
           <p>
-            I’m a product design expert and creative with 20 years of experience, with seven of
-            those dedicated to advanced analytics. My work focuses on design direction for
-            AI-driven products across machine learning, GenAI and agentic applications, with a
-            strong focus on AI tools and frameworks for image and video creation. I specialise in
-            crafting user-centred experiences for highly technical audiences in the technology and
-            financial sectors.
+            I’m a product designer and creative director with 20 years of experience, including
+            seven focused on advanced analytics, AI systems and technical product design.
           </p>
           <p>
-            Products I’ve designed are used by some of the world’s most recognised organisations
-            such as NASA, Apple, Google, Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull,
-            HSBC, Santander, Barclays and more.
+            My work spans machine learning, GenAI and agentic applications, with a focus on
+            shaping clear, human-centred experiences for complex products in technology and
+            financial services.
           </p>
           <p>
-            Recently, I served as a Principal Designer at
+            Products I’ve designed are used by organisations including NASA, Apple, Google,
+            Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull, HSBC, Santander and Barclays.
+          </p>
+          <p>
+            More recently, I served as a Principal Designer at
             <a class="md-link" href="https://www.mckinsey.com/" target="_blank" rel="noreferrer"
               >McKinsey &amp; Company</a
             >
-            and judge for the
+            and as a judge for the
             <a
               class="md-link"
               href="https://www.webbyawards.com/"
@@ -105,10 +207,10 @@
               target="_blank"
               rel="noreferrer"
               >Linux Foundation AI &amp; Data</a
-            >, driving open-source innovation in AI and machine learning.
+            > and helped drive open-source innovation in AI and machine learning.
           </p>
           <p>
-            Previously, as a creative and art director I’ve collaborated with creative teams at
+            I’ve also worked with creative teams at
             <a
               class="md-link"
               href="https://www.mediaartslab.com/"
@@ -125,20 +227,19 @@
               target="_blank"
               rel="noreferrer"
               >Google Creative Lab</a
-            >
-            and many more.
+            >.
           </p>
           <p>
-            Throughout my career I’ve been greatly influenced by modernism, strong typographical
-            style, simplicity, form, function, grid systems and basic geometry. The Swiss school
-            of design has been of great inspiration for me.
+            My approach is shaped by modernism, typographic discipline, simplicity, form,
+            function, grid systems and geometry. The Swiss school remains a strong influence on how
+            I think about visual systems and product design.
           </p>
           <p>
             I’m currently based in
             <span class="is-struck"
-              >the UK, Sweden, Netherlands, Singapore, Italy, Portugal,</span
-            >
-            Brazil and I do enjoy travelling and getting to know different cultures.
+              >the UK, Sweden, Netherlands, Singapore, Italy, Portugal</span
+            >,
+            Brazil, and I enjoy travelling and getting to know different cultures.
           </p>
           <p>
             I love the sea, music, food, art galleries, book shops, audio and visual gear and
@@ -155,24 +256,24 @@
               <span class="main-link__url">https://demo.kedro.org/</span>
             </li>
             <li class="main-link">
-              <a class="main-link__title" href="./case-studies/kedro_experiment_tracking_case_study.md" target="_blank" rel="noreferrer">KEDRO / EXPERIMENT TRACKING</a>
+              <a class="main-link__title" href="./work/kedro-experiment-tracking/">KEDRO / EXPERIMENT TRACKING</a>
               <p class="main-link__description">Integrating experiment tracking and model performance into Kedro Viz.</p>
-              <span class="main-link__url">./case-studies/kedro_experiment_tracking_case_study.md</span>
+              <span class="main-link__url">https://comym.co/work/kedro-experiment-tracking/</span>
             </li>
             <li class="main-link">
-              <a class="main-link__title" href="./case-studies/kedro_modular_pipelines_case_study.md" target="_blank" rel="noreferrer">KEDRO / MODULAR PIPELINES</a>
+              <a class="main-link__title" href="./work/kedro-modular-pipelines/">KEDRO / MODULAR PIPELINES</a>
               <p class="main-link__description">Making modular pipelines easier to understand, navigate and explain.</p>
-              <span class="main-link__url">./case-studies/kedro_modular_pipelines_case_study.md</span>
+              <span class="main-link__url">https://comym.co/work/kedro-modular-pipelines/</span>
             </li>
             <li class="main-link">
-              <a class="main-link__title" href="./case-studies/wovenlight_rapid_diagnostic_reports_case_study.md" target="_blank" rel="noreferrer">WOVENLIGHT / RAPID DIAGNOSTIC REPORTS</a>
+              <a class="main-link__title" href="./work/wovenlight-rapid-diagnostic-reports/">WOVENLIGHT / RAPID DIAGNOSTIC REPORTS</a>
               <p class="main-link__description">AI-native internal product for rapid diagnostics, summaries and commercial storytelling.</p>
-              <span class="main-link__url">./case-studies/wovenlight_rapid_diagnostic_reports_case_study.md</span>
+              <span class="main-link__url">https://comym.co/work/wovenlight-rapid-diagnostic-reports/</span>
             </li>
             <li class="main-link">
-              <a class="main-link__title" href="./case-studies/wovenlight_rebranding_case_study.md" target="_blank" rel="noreferrer">WOVENLIGHT / REBRANDING</a>
+              <a class="main-link__title" href="./work/wovenlight-rebranding/">WOVENLIGHT / REBRANDING</a>
               <p class="main-link__description">Brand system evolution to improve trust, consistency and investment readiness.</p>
-              <span class="main-link__url">./case-studies/wovenlight_rebranding_case_study.md</span>
+              <span class="main-link__url">https://comym.co/work/wovenlight-rebranding/</span>
             </li>
           </ul>
         </section>
@@ -235,21 +336,17 @@
 
           <section class="block block--framed" id="awards">
             <h2>Awards and recognition</h2>
-            <ul class="stack-list">
-              <li>AI Awards - Gold - Best Technical Tool or Framework for AI</li>
-              <li>Fast Company Innovation by Design Award - Honour</li>
-              <li>D&amp;AD White Pencil - Creativity for Good</li>
-              <li>Cannes Lions - Digital &amp; Social - Shortlist</li>
-              <li>Campaign Event Awards - Gold</li>
-              <li>Lovie Awards - Gold</li>
-              <li>FWA - Site Of The Day</li>
-              <li>Behance Graphic Design</li>
-              <li>Behance Interactive</li>
-              <li>Behance Motion</li>
-              <li>Colunistas Awards - Grand Prix</li>
-              <li>Colunistas Awards - Gold</li>
-              <li>Colunistas Awards - Silver</li>
-              <li>Brazilian Advertising Festival - Bronze</li>
+            <ul class="stack-list awards-list">
+              <li class="award-item"><span class="award-item__title">AI Awards</span></li>
+              <li class="award-item"><span class="award-item__title">Fast Company Innovation by Design Award</span></li>
+              <li class="award-item"><span class="award-item__title">D&amp;AD White Pencil</span></li>
+              <li class="award-item"><span class="award-item__title">Cannes Lions</span></li>
+              <li class="award-item"><span class="award-item__title">Campaign Event Awards</span></li>
+              <li class="award-item"><span class="award-item__title">Lovie Awards</span></li>
+              <li class="award-item"><span class="award-item__title">FWA</span></li>
+              <li class="award-item"><span class="award-item__title">Behance</span></li>
+              <li class="award-item"><span class="award-item__title">Colunistas Awards</span></li>
+              <li class="award-item"><span class="award-item__title">Brazilian Advertising Festival</span></li>
             </ul>
           </section>
 
@@ -257,9 +354,9 @@
             <h2>Writing</h2>
             <ul class="stack-list main-links">
               <li class="main-link">
-                <a class="main-link__title" href="https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b" target="_blank" rel="noreferrer">THOUGHTS ON THE CANON</a>
+                <a class="main-link__title" href="https://gabrielcomym.medium.com/thoughts-on-the-canon-exploring-the-interplay-of-form-and-function-d6730a506ce1" target="_blank" rel="noreferrer">THOUGHTS ON THE CANON</a>
                 <p class="main-link__description">Essay on digital aesthetics, code, movement and affect.</p>
-                <span class="main-link__url">https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b</span>
+                <span class="main-link__url">https://gabrielcomym.medium.com/thoughts-on-the-canon-exploring-the-interplay-of-form-and-function-d6730a506ce1</span>
               </li>
               <li class="main-link">
                 <a class="main-link__title" href="https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b" target="_blank" rel="noreferrer">DIGITAL AESTHETICS</a>
@@ -269,7 +366,7 @@
             </ul>
           </section>
 
-          <section class="block block--framed testimonials" id="testimonials" data-testimonials>
+          <section class="block block--framed testimonials is-collapsed" id="testimonials" data-testimonials>
             <div class="section-toggle">
               <h2>Testimonials</h2>
             </div>
@@ -394,21 +491,7 @@
           </p>
         </footer>
       </article>
-      <section class="video-reveal" aria-label="Featured video">
-        <div class="video-reveal__sticky">
-          <div class="video-reveal__frame">
-            <video
-              class="video-reveal__media"
-              src="./video.mov"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-            ></video>
-          </div>
-        </div>
-      </section>
+      </div>
     </main>
     <textarea class="page-source" data-markdown-source hidden>
 # Gabriel Comym
@@ -422,17 +505,19 @@
 
 ## Overview
 
-I’m a product design expert and creative with 20 years of experience, with seven of those dedicated to advanced analytics.
+I’m a product designer and creative director with 20 years of experience, including seven focused on advanced analytics, AI systems and technical product design.
 
-My work focuses on design direction for AI-driven products across machine learning, GenAI and agentic applications, with a strong focus on AI tools and frameworks for image and video creation. I specialise in crafting user-centred experiences for highly technical audiences in the technology and financial sectors.
+My work spans machine learning, GenAI and agentic applications, with a focus on shaping clear, human-centred experiences for complex products in technology and financial services.
 
-Recently, I served as a Principal Designer at [McKinsey & Company](https://www.mckinsey.com/) and as a judge for the [Webby Awards](https://www.webbyawards.com/), [FWA](https://thefwa.com/) and [Awwwards](https://www.awwwards.com/). As former [Kedro](https://kedro.org/) Design Lead, I contributed to the growth of [Linux Foundation AI & Data](https://lfaidata.foundation/) and supported open-source innovation in AI and machine learning.
+Products I’ve designed are used by organisations including NASA, Apple, Google, Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull, HSBC, Santander and Barclays.
 
-Previously, as a creative and art director, I collaborated with teams at [TBWA\Media Arts Lab](https://www.mediaartslab.com/), [Wieden+Kennedy](https://www.wk.com/), [Google Creative Lab](https://www.creativelab5.com/) and many more.
+More recently, I served as a Principal Designer at [McKinsey & Company](https://www.mckinsey.com/) and as a judge for the [Webby Awards](https://www.webbyawards.com/), [FWA](https://thefwa.com/) and [Awwwards](https://www.awwwards.com/). As former [Kedro](https://kedro.org/) Design Lead, I contributed to the growth of [Linux Foundation AI & Data](https://lfaidata.foundation/) and helped drive open-source innovation in AI and machine learning.
 
-Throughout my career I’ve been strongly influenced by modernism, typographic discipline, simplicity, form, function, grid systems and basic geometry. The Swiss school of design remains a central reference in the way I approach visual systems and product design.
+I’ve also worked with creative teams at [TBWA\Media Arts Lab](https://www.mediaartslab.com/), [Wieden+Kennedy](https://www.wk.com/) and [Google Creative Lab](https://www.creativelab5.com/).
 
-I’m currently based across ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~ and Brazil, and I enjoy travelling and getting to know different cultures.
+My approach is shaped by modernism, typographic discipline, simplicity, form, function, grid systems and geometry. The Swiss school remains a strong influence on how I think about visual systems and product design.
+
+I’m currently based in ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~ Brazil, and I enjoy travelling and getting to know different cultures.
 
 I love the sea, music, food, art galleries, book shops, audio and visual gear and having a good time with friends and family.
 
@@ -440,13 +525,13 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
   Live Kedro Viz demo for exploring pipelines, lineage and modular workflows.
-- [Kedro / Experiment Tracking](./case-studies/kedro_experiment_tracking_case_study.md)
+- [Kedro / Experiment Tracking](https://comym.co/work/kedro-experiment-tracking/)
   Integrating experiment tracking and model performance into Kedro Viz.
-- [Kedro / Modular Pipelines](./case-studies/kedro_modular_pipelines_case_study.md)
+- [Kedro / Modular Pipelines](https://comym.co/work/kedro-modular-pipelines/)
   Making modular pipelines easier to understand, navigate and explain.
-- [WovenLight / Rapid Diagnostic Reports](./case-studies/wovenlight_rapid_diagnostic_reports_case_study.md)
+- [WovenLight / Rapid Diagnostic Reports](https://comym.co/work/wovenlight-rapid-diagnostic-reports/)
   AI-native internal product for rapid diagnostics, summaries and commercial storytelling.
-- [WovenLight / Rebranding](./case-studies/wovenlight_rebranding_case_study.md)
+- [WovenLight / Rebranding](https://comym.co/work/wovenlight-rebranding/)
   Brand system evolution to improve trust, consistency and investment readiness.
 
 ## Selected Clients and Users
@@ -497,7 +582,7 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 
 ## Writing
 
-- [Thoughts on The Canon](https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b)
+- [Thoughts on The Canon](https://gabrielcomym.medium.com/thoughts-on-the-canon-exploring-the-interplay-of-form-and-function-d6730a506ce1)
 - [Digital Aesthetics](https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b)
 
 ## Education
@@ -550,20 +635,16 @@ Interactive art direction, creative and product design for VR, web, and native a
 
 ## Awards and Recognition
 
-- AI Awards - Gold - Best Technical Tool or Framework for AI
-- Fast Company Innovation by Design Award - Honour
-- D&AD White Pencil - Creativity for Good
-- Cannes Lions - Digital & Social - Shortlist
-- Campaign Event Awards - Gold
-- Lovie Awards - Gold
-- FWA - Site Of The Day
-- Behance Graphic Design
-- Behance Interactive
-- Behance Motion
-- Colunistas Awards - Grand Prix
-- Colunistas Awards - Gold
-- Colunistas Awards - Silver
-- Brazilian Advertising Festival - Bronze
+- AI Awards
+- Fast Company Innovation by Design Award
+- D&AD White Pencil
+- Cannes Lions
+- Campaign Event Awards
+- Lovie Awards
+- FWA
+- Behance
+- Colunistas Awards
+- Brazilian Advertising Festival
 
 ## Latest Certifications
 
@@ -615,19 +696,19 @@ Comym
 
 Human-Centered Design. AI-Powered Systems.
 
-I’m a product design expert and creative with 20 years of experience, with seven of those dedicated to advanced analytics.
+I’m a product designer and creative director with 20 years of experience, including seven focused on advanced analytics, AI systems and technical product design.
 
-My work focuses on design direction for AI-driven products across machine learning, GenAI and agentic applications, with a strong focus on AI tools and frameworks for image and video creation. I specialise in crafting user-centred experiences for highly technical audiences in the technology and financial sectors.
+My work spans machine learning, GenAI and agentic applications, with a focus on shaping clear, human-centred experiences for complex products in technology and financial services.
 
-Products I’ve designed are used by some of the world’s most recognised organisations such as NASA, Apple, Google, Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull, HSBC, Santander, Barclays and more.
+Products I’ve designed are used by organisations including NASA, Apple, Google, Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull, HSBC, Santander and Barclays.
 
-Recently, I served as a Principal Designer at McKinsey & Company - https://www.mckinsey.com/ and judge for the Webby Awards - https://www.webbyawards.com/, FWA - https://thefwa.com/ and Awwwards - https://www.awwwards.com/. As the former Kedro Design Lead - https://kedro.org/ I contributed to the Linux Foundation AI & Data - https://lfaidata.foundation/, driving open-source innovation in AI and machine learning.
+More recently, I served as a Principal Designer at McKinsey & Company - https://www.mckinsey.com/ and as a judge for the Webby Awards - https://www.webbyawards.com/, FWA - https://thefwa.com/ and Awwwards - https://www.awwwards.com/. As the former Kedro Design Lead - https://kedro.org/ I contributed to the Linux Foundation AI & Data - https://lfaidata.foundation/ and helped drive open-source innovation in AI and machine learning.
 
-Previously, as a creative and art director I’ve collaborated with creative teams at TBWA\Media Arts Lab - https://www.mediaartslab.com/, Wieden+Kennedy - https://www.wk.com/, Google Creative Lab - https://www.creativelab5.com/ and many more.
+I’ve also worked with creative teams at TBWA\Media Arts Lab - https://www.mediaartslab.com/, Wieden+Kennedy - https://www.wk.com/ and Google Creative Lab - https://www.creativelab5.com/.
 
-Throughout my career I’ve been greatly influenced by modernism, strong typographical style, simplicity, form, function, grid systems and basic geometry. The Swiss school of design has been of great inspiration for me.
+My approach is shaped by modernism, typographic discipline, simplicity, form, function, grid systems and geometry. The Swiss school remains a strong influence on how I think about visual systems and product design.
 
-I’m currently based in ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal,~~ Brazil and I do enjoy travelling and getting to know different cultures.
+I’m currently based in ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~, Brazil, and I enjoy travelling and getting to know different cultures.
 
 I love the sea, music, food, art galleries, book shops, audio and visual gear and having a good time with friends and family.
 
@@ -676,23 +757,19 @@ Senior Designer, Rehab
 Senior Designer, Razorfish
 
 Awards and recognition
-AI Awards - Gold - Best Technical Tool or Framework for AI
-Fast Company Innovation by Design Award - Honour
-D&AD White Pencil - Creativity for Good
-Cannes Lions - Digital & Social - Shortlist
-Campaign Event Awards - Gold
-Lovie Awards - Gold
-FWA - Site Of The Day
-Behance Graphic Design
-Behance Interactive
-Behance Motion
-Colunistas Awards - Grand Prix
-Colunistas Awards - Gold
-Colunistas Awards - Silver
-Brazilian Advertising Festival - Bronze
+AI Awards
+Fast Company Innovation by Design Award
+D&AD White Pencil
+Cannes Lions
+Campaign Event Awards
+Lovie Awards
+FWA
+Behance
+Colunistas Awards
+Brazilian Advertising Festival
 
 Writing
-Thoughts on The Canon: Exploring the Interplay of Form and Function - https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b
+Thoughts on The Canon: Exploring the Interplay of Form and Function - https://gabrielcomym.medium.com/thoughts-on-the-canon-exploring-the-interplay-of-form-and-function-d6730a506ce1
 Digital Aesthetics — The primacy of Codes, Experience, Movement and Affect - https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b
 
 Testimonials

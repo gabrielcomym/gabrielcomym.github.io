@@ -5,14 +5,19 @@ const downloadButton = document.querySelector("[data-download-markdown]");
 const terminalLoginLines = Array.from(document.querySelectorAll("[data-terminal-login]"));
 const externalLinkUrls = Array.from(document.querySelectorAll(".main-link__url"));
 const mainLinkCards = Array.from(document.querySelectorAll(".main-link"));
+const headerIconButtons = Array.from(document.querySelectorAll(".sheet__actions .icon-button"));
+const testimonialsSection = document.querySelector("[data-testimonials]");
+const testimonialsBody = document.querySelector("[data-testimonials-body]");
 const bootScreen = document.querySelector("[data-boot-screen]");
 const bootCode = document.querySelector("[data-boot-code]");
 const DOWNLOAD_FEEDBACK_DURATION = 2200;
 const BOOT_SCREEN_MIN_DURATION = 760;
 const BOOT_SCREEN_FADE_DURATION = 140;
 const ICON_SWAP_DURATION = 140;
+const INITIAL_VIDEO_REVEAL_OFFSET_RATIO = 0.33;
 let downloadFeedbackTimeoutId;
 const MAX_VISIBLE_URL_LENGTH = 60;
+const TESTIMONIALS_COLLAPSED_HEIGHT = 400;
 const bootSnippets = [
   [["muted", "1"], ["plain", "const "], ["blue", "runtime"], ["plain", " = "], ["orange", "\"portfolio\""], ["plain", ";"]],
   [["muted", "2"], ["plain", "const "], ["blue", "root"], ["plain", " = document.documentElement;"]],
@@ -172,6 +177,21 @@ const dismissBootScreen = () => {
   }, BOOT_SCREEN_FADE_DURATION);
 };
 
+const dismissHeaderTooltips = () => {
+  headerIconButtons.forEach((button) => {
+    if (button instanceof HTMLElement) {
+      button.blur();
+    }
+  });
+};
+
+const setInitialViewportOffset = () => {
+  if (window.location.hash || window.scrollY > 4) return;
+
+  const targetOffset = Math.round(window.innerHeight * INITIAL_VIDEO_REVEAL_OFFSET_RATIO);
+  window.scrollTo(0, targetOffset);
+};
+
 const activateMainLinkCard = (card) => {
   const titleLink = card.querySelector(".main-link__title");
   if (!titleLink) return;
@@ -205,6 +225,65 @@ mainLinkCards.forEach((card) => {
   });
 });
 
+if (testimonialsSection instanceof HTMLElement) {
+  testimonialsSection.tabIndex = 0;
+
+  const syncTestimonialsHeight = () => {
+    if (!(testimonialsBody instanceof HTMLElement)) return;
+
+    if (testimonialsSection.classList.contains("is-expanded")) {
+      testimonialsBody.style.maxHeight = `${testimonialsBody.scrollHeight}px`;
+      return;
+    }
+
+    testimonialsBody.style.maxHeight = `${TESTIMONIALS_COLLAPSED_HEIGHT}px`;
+  };
+
+  const toggleTestimonials = () => {
+    if (!(testimonialsBody instanceof HTMLElement)) return;
+
+    const isExpanded = testimonialsSection.classList.contains("is-expanded");
+    const currentHeight = testimonialsBody.getBoundingClientRect().height;
+    testimonialsBody.style.maxHeight = `${currentHeight}px`;
+
+    window.requestAnimationFrame(() => {
+      if (isExpanded) {
+        testimonialsSection.classList.remove("is-expanded");
+        testimonialsSection.classList.add("is-collapsed");
+        testimonialsBody.style.maxHeight = `${TESTIMONIALS_COLLAPSED_HEIGHT}px`;
+        return;
+      }
+
+      testimonialsSection.classList.remove("is-collapsed");
+      testimonialsSection.classList.add("is-expanded");
+      testimonialsBody.style.maxHeight = `${testimonialsBody.scrollHeight}px`;
+    });
+  };
+
+  testimonialsSection.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest(".md-link")) {
+      return;
+    }
+
+    toggleTestimonials();
+  });
+
+  testimonialsSection.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    toggleTestimonials();
+  });
+
+  window.addEventListener("resize", syncTestimonialsHeight);
+  syncTestimonialsHeight();
+}
+
+headerIconButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    window.setTimeout(dismissHeaderTooltips, 0);
+  });
+});
+
 downloadButton?.addEventListener("click", () => {
   try {
     if (!markdownSource.trim()) throw new Error("missing markdown");
@@ -227,8 +306,20 @@ updateTerminalLoginLines();
 
 renderBootSnippets();
 window.setInterval(updateTerminalLoginLines, 1000);
+window.addEventListener("focus", dismissHeaderTooltips);
+window.addEventListener("pageshow", dismissHeaderTooltips);
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    dismissHeaderTooltips();
+  }
+});
 
 Promise.all([
   document.fonts?.ready ?? Promise.resolve(),
   new Promise((resolve) => window.setTimeout(resolve, BOOT_SCREEN_MIN_DURATION)),
-]).then(dismissBootScreen);
+]).then(() => {
+  dismissBootScreen();
+  window.setTimeout(() => {
+    window.requestAnimationFrame(setInitialViewportOffset);
+  }, BOOT_SCREEN_FADE_DURATION + 8);
+});

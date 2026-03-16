@@ -1,0 +1,29 @@
+# Comym
+
+> Human-Centered Design. AI-Powered Systems.
+
+Comym is the portfolio of Gabriel Comym, a product designer and creative working across AI-powered systems, machine learning, GenAI, agentic applications and design direction for technical products.
+
+## Primary page
+
+- https://comym.co/
+
+## Contact
+
+- Email: mailto:gabrielcomym@gmail.com
+- LinkedIn: https://www.linkedin.com/in/gabrielcomym/
+- GitHub: https://github.com/gabrielcomym
+- Medium: https://gabrielcomym.medium.com/
+
+## Work
+
+- Kedro Live Demo: https://demo.kedro.org/
+- Kedro / Experiment Tracking: https://comym.co/work/kedro-experiment-tracking/
+- Kedro / Modular Pipelines: https://comym.co/work/kedro-modular-pipelines/
+- WovenLight / Rapid Diagnostic Reports: https://comym.co/work/wovenlight-rapid-diagnostic-reports/
+- WovenLight / Rebranding: https://comym.co/work/wovenlight-rebranding/
+
+## Writing
+
+- Thoughts on The Canon: https://gabrielcomym.medium.com/thoughts-on-the-canon-exploring-the-interplay-of-form-and-function-d6730a506ce1
+- Digital Aesthetics: https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b

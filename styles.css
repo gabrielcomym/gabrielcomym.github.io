@@ -128,12 +128,18 @@ body.is-booting .page {
 
 .page {
   width: 100%;
-  padding: 80px 32px 0;
   opacity: 1;
   transform: translateY(0);
   transition:
     opacity 0.16s ease,
     transform 0.16s ease;
+}
+
+.page__content {
+  position: relative;
+  z-index: 1;
+  padding: 80px 32px 300px;
+  background: #000000;
 }
 
 a {
@@ -234,6 +240,10 @@ a:hover {
   color: var(--muted);
 }
 
+.sheet__brand p {
+  margin: 0;
+}
+
 .sheet__eyebrow {
   margin: 0;
 }
@@ -243,16 +253,19 @@ a:hover {
 }
 
 .sheet__action-row {
-  position: relative;
   display: flex;
   gap: 8px;
   justify-content: flex-end;
 }
 
+.icon-control {
+  position: relative;
+}
+
 .icon-tooltip {
   position: absolute;
   top: calc(100% + 10px);
-  right: 0;
+  left: 0;
   max-width: 220px;
   padding: 10px 12px;
   border: 1px solid rgba(13, 17, 23, 0.08);
@@ -287,19 +300,24 @@ a:hover {
     color 0.16s ease;
 }
 
+a.icon-button {
+  text-decoration: none;
+}
+
 .icon-button:hover {
   background: #1f1f1f;
   color: var(--text);
 }
 
-.sheet__action-row:hover .icon-tooltip,
-.sheet__action-row:focus-within .icon-tooltip {
+.icon-control:hover .icon-tooltip,
+.icon-control:focus-within .icon-tooltip {
   opacity: 1;
   transform: translateY(0);
 }
 
 .icon-button i,
-.icon-button svg {
+.icon-button svg,
+.icon-button img {
   width: 15px;
   height: 15px;
   transform-origin: center;
@@ -318,13 +336,15 @@ a:hover {
 }
 
 .icon-button.is-icon-leaving i,
-.icon-button.is-icon-leaving svg {
+.icon-button.is-icon-leaving svg,
+.icon-button.is-icon-leaving img {
   opacity: 0;
   transform: scale(0.72);
 }
 
 .icon-button.is-icon-entering i,
-.icon-button.is-icon-entering svg {
+.icon-button.is-icon-entering svg,
+.icon-button.is-icon-entering img {
   opacity: 0;
   transform: scale(1.18);
 }
@@ -472,6 +492,15 @@ a:hover {
   max-width: 72ch;
 }
 
+.stack-list--ordered {
+  padding-left: 18px;
+  list-style: decimal;
+}
+
+.stack-list--ordered li {
+  margin: 0 0 10px;
+}
+
 .stack-list li {
   margin: 0 0 10px;
 }
@@ -507,8 +536,26 @@ a:hover {
   margin-bottom: 0;
 }
 
+.testimonials {
+  cursor: pointer;
+}
+
 .testimonials__body {
   position: relative;
+  overflow: hidden;
+  max-height: 400px;
+  transition: max-height 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.testimonials.is-collapsed .testimonials__body::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 180px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000 82%);
+  pointer-events: none;
 }
 
 .work-list {
@@ -586,6 +633,27 @@ a:hover {
   margin-bottom: 0;
 }
 
+.awards-list {
+  max-width: 62ch;
+}
+
+.award-item {
+  margin: 0 0 16px;
+}
+
+.award-item__title,
+.award-item__meta {
+  display: block;
+}
+
+.award-item__title {
+  color: var(--muted);
+}
+
+.award-item:last-child {
+  margin-bottom: 0;
+}
+
 .terminal-footer {
   position: relative;
   margin-top: 36px;
@@ -615,35 +683,53 @@ a:hover {
   animation: terminal-cursor-blink 1s steps(1, end) infinite;
 }
 
+.case-sheet {
+  padding-bottom: 80px;
+}
+
+.case-sheet__header {
+  padding-bottom: 36px;
+}
+
+.case-sheet__home,
+.case-sheet__link {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.case-sheet__home:hover,
+.case-sheet__home:focus-visible,
+.case-sheet__link:hover,
+.case-sheet__link:focus-visible {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.case-sheet__links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .page-source {
   display: none;
 }
 
-.video-reveal {
-  position: relative;
-  min-height: 180vh;
-  margin-top: 160px;
-}
-
-.video-reveal__sticky {
+.hero-video {
   position: sticky;
   top: 0;
+  z-index: 0;
   height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
 }
 
-.video-reveal__frame {
+.hero-video__frame {
   width: 100vw;
   height: 100vh;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
   background: #6b6b6b;
   overflow: hidden;
 }
 
-.video-reveal__media {
+.hero-video__media {
   width: 100%;
   height: 100%;
   display: block;
@@ -721,10 +807,6 @@ a:hover {
 }
 
 @media (max-width: 640px) {
-  .page {
-    padding: 80px 18px 0;
-  }
-
   .boot-screen {
     padding: 80px 18px;
   }
@@ -760,9 +842,8 @@ a:hover {
     gap: 0;
   }
 
-  .video-reveal {
-    min-height: 150vh;
-    margin-top: 120px;
+  .page__content {
+    padding: 80px 24px 300px;
   }
 }
 
