@@ -5,7 +5,6 @@
 - Email: [gabrielcomym@gmail.com](mailto:gabrielcomym@gmail.com)
 - LinkedIn: [linkedin.com/in/gabrielcomym](https://www.linkedin.com/in/gabrielcomym/)
 - Portfolio: [www.comym.co](https://www.comym.co)
-- Phone: +55 11 99438 0079
 
 ## Overview
 
@@ -29,14 +28,14 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
   Live Kedro Viz demo for exploring pipelines, lineage and modular workflows.
-- [Kedro / Experiment Tracking](https://comym.co/case-studies/kedro_experiment_tracking_case_study.md)
-  Integrating experiment tracking and model performance into Kedro Viz.
-- [Kedro / Modular Pipelines](https://comym.co/case-studies/kedro_modular_pipelines_case_study.md)
-  Making modular pipelines easier to understand, navigate and explain.
-- [WovenLight / Rapid Diagnostic Reports](https://comym.co/case-studies/wovenlight_rapid_diagnostic_reports_case_study.md)
-  AI-native internal product for rapid diagnostics, summaries and commercial storytelling.
-- [WovenLight / Rebranding](https://comym.co/case-studies/wovenlight_rebranding_case_study.md)
-  Brand system evolution to improve trust, consistency and investment readiness.
+- Kedro / Experiment Tracking
+  Integrating experiment tracking and model performance into Kedro Viz. Private case study available on request.
+- Kedro / Modular Pipelines
+  Making modular pipelines easier to understand, navigate and explain. Private case study available on request.
+- WovenLight / Rapid Diagnostic Reports
+  AI-native internal product for rapid diagnostics, summaries and commercial storytelling. Private case study available on request.
+- WovenLight / Rebranding
+  Brand system evolution to improve trust, consistency and investment readiness. Private case study available on request.
 
 ## Selected Clients and Users
 
@@ -113,7 +112,7 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 
 *Jul 2025 – Feb 2026*
 
-Design leadership. Hands on product design direction for Pfizer, Stone, Bradesco and Santander.
+Design leadership and hands-on product direction across healthcare, fintech and financial services engagements.
 
 ### Principal Designer — WovenLight
 
