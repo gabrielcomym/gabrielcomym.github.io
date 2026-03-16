@@ -19,7 +19,7 @@ Previously, as a creative and art director, I collaborated with teams at [TBWA\M
 
 Throughout my career I’ve been strongly influenced by modernism, typographic discipline, simplicity, form, function, grid systems and basic geometry. The Swiss school of design remains a central reference in the way I approach visual systems and product design.
 
-I’m currently based across the UK, Sweden, Netherlands, Singapore, Italy, Portugal and Brazil, and I enjoy travelling and getting to know different cultures.
+I’m currently based across ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~ and Brazil, and I enjoy travelling and getting to know different cultures.
 
 I love the sea, food, music, live concerts, art galleries, audio and visual gear, and having a good time with friends and family.
 

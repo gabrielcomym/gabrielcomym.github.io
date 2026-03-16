@@ -436,6 +436,12 @@ a:hover {
   line-height: 1.38;
 }
 
+.is-struck {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(201, 209, 217, 0.5);
+}
+
 .block h1 {
   line-height: 1.24;
 }
