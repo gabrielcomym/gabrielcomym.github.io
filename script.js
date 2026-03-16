@@ -14,7 +14,7 @@ const DOWNLOAD_FEEDBACK_DURATION = 2200;
 const BOOT_SCREEN_MIN_DURATION = 760;
 const BOOT_SCREEN_FADE_DURATION = 140;
 const ICON_SWAP_DURATION = 140;
-const INITIAL_VIDEO_REVEAL_OFFSET_RATIO = 0.33;
+const INITIAL_HERO_OFFSET = () => Math.round(window.innerHeight * 0.35);
 let downloadFeedbackTimeoutId;
 const MAX_VISIBLE_URL_LENGTH = 60;
 const TESTIMONIALS_COLLAPSED_HEIGHT = 400;
@@ -185,12 +185,16 @@ const dismissHeaderTooltips = () => {
   });
 };
 
-const setInitialViewportOffset = () => {
-  if (window.location.hash || window.scrollY > 4) return;
-
-  const targetOffset = Math.round(window.innerHeight * INITIAL_VIDEO_REVEAL_OFFSET_RATIO);
-  window.scrollTo(0, targetOffset);
+const setInitialHeroViewport = () => {
+  if (window.location.hash) return;
+  window.scrollTo({ top: INITIAL_HERO_OFFSET(), left: 0, behavior: "auto" });
 };
+
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+
+window.scrollTo(0, 0);
 
 const activateMainLinkCard = (card) => {
   const titleLink = card.querySelector(".main-link__title");
@@ -319,7 +323,11 @@ Promise.all([
   new Promise((resolve) => window.setTimeout(resolve, BOOT_SCREEN_MIN_DURATION)),
 ]).then(() => {
   dismissBootScreen();
-  window.setTimeout(() => {
-    window.requestAnimationFrame(setInitialViewportOffset);
-  }, BOOT_SCREEN_FADE_DURATION + 8);
+  [BOOT_SCREEN_FADE_DURATION + 8, BOOT_SCREEN_FADE_DURATION + 80, BOOT_SCREEN_FADE_DURATION + 180].forEach(
+    (delay) => {
+      window.setTimeout(() => {
+        window.requestAnimationFrame(setInitialHeroViewport);
+      }, delay);
+    }
+  );
 });

@@ -29,13 +29,13 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
   Live Kedro Viz demo for exploring pipelines, lineage and modular workflows.
-- [Kedro / Experiment Tracking](https://comym.co/work/kedro-experiment-tracking/)
+- [Kedro / Experiment Tracking](https://comym.co/case-studies/kedro_experiment_tracking_case_study.md)
   Integrating experiment tracking and model performance into Kedro Viz.
-- [Kedro / Modular Pipelines](https://comym.co/work/kedro-modular-pipelines/)
+- [Kedro / Modular Pipelines](https://comym.co/case-studies/kedro_modular_pipelines_case_study.md)
   Making modular pipelines easier to understand, navigate and explain.
-- [WovenLight / Rapid Diagnostic Reports](https://comym.co/work/wovenlight-rapid-diagnostic-reports/)
+- [WovenLight / Rapid Diagnostic Reports](https://comym.co/case-studies/wovenlight_rapid_diagnostic_reports_case_study.md)
   AI-native internal product for rapid diagnostics, summaries and commercial storytelling.
-- [WovenLight / Rebranding](https://comym.co/work/wovenlight-rebranding/)
+- [WovenLight / Rebranding](https://comym.co/case-studies/wovenlight_rebranding_case_study.md)
   Brand system evolution to improve trust, consistency and investment readiness.
 
 ## Selected Clients and Users

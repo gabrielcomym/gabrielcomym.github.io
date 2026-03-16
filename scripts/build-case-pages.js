@@ -132,7 +132,9 @@ const getDescription = (blocks) => {
 const renderBlocks = (blocks) =>
   blocks
     .map((block) => {
-      if (block.type === "h1") return `<h1>${inlineMarkdownToHtml(block.text)}</h1>`;
+      if (block.type === "h1") {
+        return `<section class="block block--framed"><h1>${inlineMarkdownToHtml(block.text)}</h1></section>`;
+      }
       if (block.type === "h2") return `<section class="block block--framed"><h2>${inlineMarkdownToHtml(block.text)}</h2>`;
       if (block.type === "h3") return `<h3>${inlineMarkdownToHtml(block.text)}</h3>`;
       if (block.type === "p") return `<p>${inlineMarkdownToHtml(block.text)}</p>`;
@@ -218,18 +220,20 @@ const renderPage = ({ title, description, slug, bodyHtml, sourcePath }) => {
   </head>
   <body>
     <main class="page">
-      <article class="sheet case-sheet">
-        <header class="sheet__header case-sheet__header">
+      <div class="page__content">
+      <article class="sheet">
+        <header class="sheet__header">
           <div class="sheet__brand">
-            <p><a class="case-sheet__home" href="../../">Comym</a></p>
+            <p><a class="case-sheet__home" href="../../index.html">Comym</a></p>
           </div>
           <div class="case-sheet__links">
             <a class="case-sheet__link" href="${escapeHtml(sourcePath)}" target="_blank" rel="noreferrer">SOURCE MD</a>
-            <a class="case-sheet__link" href="../../#top">BACK</a>
+            <a class="case-sheet__link" href="../../index.html#top">BACK</a>
           </div>
         </header>
         ${bodyHtml}
       </article>
+      </div>
     </main>
   </body>
 </html>`;
