@@ -3,7 +3,784 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Comym</title>
+    <title>Gabriel Comym</title>
+    <meta
+      name="description"
+      content="Minimal terminal-markdown portfolio for Gabriel Comym."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23000000'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' fill='%23c9d1d9' font-family='monospace' font-size='24'%3ECO%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body></body>
+  <body class="is-booting">
+    <div class="boot-screen" data-boot-screen>
+      <div class="boot-screen__inner" aria-hidden="true">
+        <div class="boot-screen__code" data-boot-code></div>
+        <p class="boot-screen__status">
+          rendering comym/about<span class="boot-screen__cursor"></span>
+        </p>
+      </div>
+    </div>
+    <main class="page">
+      <article class="sheet" id="top">
+        <header class="sheet__header">
+          <div class="sheet__brand">
+            <p>Comym</p>
+          </div>
+          <div class="sheet__actions" aria-label="Document actions">
+            <div class="sheet__action-row">
+              <button
+                class="icon-button"
+                type="button"
+                data-download-markdown
+                aria-label="Download page content as markdown"
+              >
+                <i data-lucide="download" aria-hidden="true"></i>
+              </button>
+              <div class="icon-tooltip" aria-hidden="true">Download CV</div>
+            </div>
+          </div>
+        </header>
+
+        <section class="block block--framed">
+          <h1>Human-Centered Design.<br />AI-Powered Systems.</h1>
+          <p>
+            I’m a product design expert and creative with 20 years of experience, with seven of
+            those dedicated to advanced analytics. My work focuses on design direction for
+            AI-driven products across machine learning, GenAI and agentic applications, with a
+            strong focus on AI tools and frameworks for image and video creation. I specialise in
+            crafting user-centred experiences for highly technical audiences in the technology and
+            financial sectors.
+          </p>
+          <p>
+            Products I’ve designed are used by some of the world’s most recognised organisations
+            such as NASA, Apple, Google, Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull,
+            HSBC, Santander, Barclays and more.
+          </p>
+          <p>
+            Recently, I served as a Principal Designer at
+            <a class="md-link" href="https://www.mckinsey.com/" target="_blank" rel="noreferrer"
+              >McKinsey &amp; Company</a
+            >
+            and judge for the
+            <a
+              class="md-link"
+              href="https://www.webbyawards.com/"
+              target="_blank"
+              rel="noreferrer"
+              >Webby Awards</a
+            >,
+            <a class="md-link" href="https://thefwa.com/" target="_blank" rel="noreferrer">FWA</a>
+            and
+            <a
+              class="md-link"
+              href="https://www.awwwards.com/"
+              target="_blank"
+              rel="noreferrer"
+              >Awwwards</a
+            >. As the former
+            <a class="md-link" href="https://kedro.org/" target="_blank" rel="noreferrer">Kedro</a>
+            Design Lead, I contributed to the
+            <a
+              class="md-link"
+              href="https://lfaidata.foundation/"
+              target="_blank"
+              rel="noreferrer"
+              >Linux Foundation AI &amp; Data</a
+            >, driving open-source innovation in AI and machine learning.
+          </p>
+          <p>
+            Previously, as a creative and art director I’ve collaborated with creative teams at
+            <a
+              class="md-link"
+              href="https://www.mediaartslab.com/"
+              target="_blank"
+              rel="noreferrer"
+              >TBWA\Media Arts Lab</a
+            >,
+            <a class="md-link" href="https://www.wk.com/" target="_blank" rel="noreferrer"
+              >Wieden+Kennedy</a
+            >,
+            <a
+              class="md-link"
+              href="https://www.creativelab5.com/"
+              target="_blank"
+              rel="noreferrer"
+              >Google Creative Lab</a
+            >
+            and many more.
+          </p>
+          <p>
+            Throughout my career I’ve been greatly influenced by modernism, strong typographical
+            style, simplicity, form, function, grid systems and basic geometry. The Swiss school
+            of design has been of great inspiration for me.
+          </p>
+          <p>
+            I’m currently based in the UK, Sweden, Netherlands, Singapore, Italy, Portugal, Brazil
+            and I do enjoy travelling and getting to know different cultures.
+          </p>
+          <p>
+            I love the sea, food, music, live concerts, art galleries, audio and visual gear and
+            having a good time with friends and family.
+          </p>
+        </section>
+
+        <section class="block block--work-hero block--framed">
+          <h2>Work</h2>
+          <ul class="stack-list work-links">
+            <li>
+              <a class="external-link" href="https://demo.kedro.org/" target="_blank" rel="noreferrer"
+                ><span class="external-link__label">KEDRO / LIVE DEMO</span><span class="external-link__url">(https://demo.kedro.org/)</span></a
+              >
+            </li>
+            <li>
+              <a
+                class="external-link"
+                href="./case-studies/kedro_experiment_tracking_case_study.md"
+                target="_blank"
+                rel="noreferrer"
+                ><span class="external-link__label">KEDRO / EXPERIMENT TRACKING</span><span class="external-link__url">(./case-studies/kedro_experiment_tracking_case_study.md)</span></a
+              >
+            </li>
+            <li>
+              <a
+                class="external-link"
+                href="./case-studies/kedro_modular_pipelines_case_study.md"
+                target="_blank"
+                rel="noreferrer"
+                ><span class="external-link__label">KEDRO / MODULAR PIPELINES</span><span class="external-link__url">(./case-studies/kedro_modular_pipelines_case_study.md)</span></a
+              >
+            </li>
+            <li>
+              <a
+                class="external-link"
+                href="./case-studies/wovenlight_rapid_diagnostic_reports_case_study.md"
+                target="_blank"
+                rel="noreferrer"
+                ><span class="external-link__label">WOVENLIGHT / RAPID DIAGNOSTIC REPORTS</span><span class="external-link__url">(./case-studies/wovenlight_rapid_diagnostic_reports_case_study.md)</span></a
+              >
+            </li>
+            <li>
+              <a
+                class="external-link"
+                href="./case-studies/wovenlight_rebranding_case_study.md"
+                target="_blank"
+                rel="noreferrer"
+                ><span class="external-link__label">WOVENLIGHT / REBRANDING</span><span class="external-link__url">(./case-studies/wovenlight_rebranding_case_study.md)</span></a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section class="block block--framed" id="clients">
+            <h2>Selected clients and users</h2>
+            <div class="client-grid">
+              <ul class="stack-list">
+                <li>NASA</li>
+                <li>Apple</li>
+                <li>Google</li>
+                <li>Microsoft</li>
+                <li>Samsung</li>
+                <li>Mercedes-Benz</li>
+                <li>Aston Martin</li>
+                <li>Opel</li>
+                <li>Volvo</li>
+                <li>Toyota</li>
+                <li>Red Bull</li>
+              </ul>
+              <ul class="stack-list">
+                <li>Unilever</li>
+                <li>GE</li>
+                <li>Santander</li>
+                <li>NatWest</li>
+                <li>HSBC</li>
+                <li>Barclays</li>
+                <li>Allianz</li>
+                <li>Emirates</li>
+                <li>McDonald’s</li>
+                <li>KFC</li>
+                <li>BBC</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="block block--framed" id="career-highlights">
+            <h2>Career highlights</h2>
+            <ul class="stack-list">
+              <li>Design Director, Work &amp; Co.</li>
+              <li>Senior Design Manager, Accenture Song</li>
+              <li>Principal Designer, WovenLight</li>
+              <li>Principal Designer, McKinsey &amp; Company</li>
+              <li>Art Director, Google - Google Creative Lab</li>
+              <li>Creative, Google - The Zoo</li>
+              <li>Creative, Wieden+Kennedy</li>
+              <li>Lead Designer, TBWA/Media Arts Lab</li>
+              <li>Lead Designer, Publicis Sapient</li>
+              <li>Lead Product Designer, Songkick</li>
+              <li>Lead Product Designer, Buzzbike</li>
+              <li>Lead Designer, VML</li>
+              <li>Interactive Art Director, Ogilvy One</li>
+              <li>Senior Designer, Wieden+Kennedy</li>
+              <li>Senior Designer, R/GA</li>
+              <li>Senior Designer, BBH</li>
+              <li>Senior Designer, Rehab</li>
+              <li>Senior Designer, Razorfish</li>
+            </ul>
+          </section>
+
+          <section class="block block--framed" id="awards">
+            <h2>Awards and recognition</h2>
+            <ul class="stack-list">
+              <li>AI Awards - Gold - Best Technical Tool or Framework for AI</li>
+              <li>Fast Company Innovation by Design Award - Honour</li>
+              <li>D&amp;AD White Pencil - Creativity for Good</li>
+              <li>Cannes Lions - Digital &amp; Social - Shortlist</li>
+              <li>Campaign Event Awards - Gold</li>
+              <li>Lovie Awards - Gold</li>
+              <li>FWA - Site Of The Day</li>
+              <li>Behance Graphic Design</li>
+              <li>Behance Interactive</li>
+              <li>Behance Motion</li>
+              <li>Colunistas Awards - Grand Prix</li>
+              <li>Colunistas Awards - Gold</li>
+              <li>Colunistas Awards - Silver</li>
+              <li>Brazilian Advertising Festival - Bronze</li>
+            </ul>
+          </section>
+
+          <section class="block block--framed" id="writing">
+            <h2>Writing</h2>
+            <ul class="stack-list">
+              <li>
+                <a
+                  class="external-link"
+                  href="https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b"
+                  target="_blank"
+                  rel="noreferrer"
+                  ><span class="external-link__label">THOUGHTS ON THE CANON</span><span class="external-link__url">(https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b)</span></a
+                >
+              </li>
+              <li>
+                <a
+                  class="external-link"
+                  href="https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b"
+                  target="_blank"
+                  rel="noreferrer"
+                  ><span class="external-link__label">DIGITAL AESTHETICS</span><span class="external-link__url">(https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b)</span></a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <section class="block block--framed testimonials" id="testimonials" data-testimonials>
+            <div class="section-toggle">
+              <h2>Testimonials</h2>
+            </div>
+            <div class="testimonials__body" id="testimonials-body" data-testimonials-body>
+            <article class="quote">
+              <p>
+                "Gabriel has an incredible eye for detail and in the short period of time I worked
+                with him at Google he brought that attention and precision in his style to a number
+                of pitches and projects I was involved in."
+              </p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/joeadamfry/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Joe Fry</a
+                >
+              </p>
+              <p>Partner Innovation at Google</p>
+            </article>
+            <article class="quote">
+              <p>"Gabriel's work as a Lead Designer on Kedro has been nothing short of amazing!"</p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/idanov/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Ivan Danov</a
+                >
+              </p>
+              <p>Software Engineer at Palantir</p>
+            </article>
+            <article class="quote">
+              <p>
+                "Gabriel stands out as someone who tries to understand the business needs behind
+                decisions."
+              </p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/carlos-ferrao/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Carlos Ferrão</a
+                >
+              </p>
+              <p>Senior Program Manager at Google</p>
+            </article>
+            <article class="quote">
+              <p>
+                "As an engineer I've learnt a lot from Gabriel about design as well as how to
+                think out of the box and build successful products."
+              </p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/merel-theisen/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Merel Theisen</a
+                >
+              </p>
+              <p>Principal Software Engineer at QuantumBlack, AI by McKinsey</p>
+            </article>
+            <article class="quote">
+              <p>
+                "He's a very talented designer and all round nice guy, the work he produced was
+                high quality and the clients loved it! Can't recommend him enough!"
+              </p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/lbayliss/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Leon Bayliss</a
+                >
+              </p>
+              <p>Product Designer | Engineer at Meta</p>
+            </article>
+            <article class="quote">
+              <p>
+                "Any company that values design understands what it can achieve and knows that it
+                takes time, space and trust will be bloody lucky to have him as part of their
+                team."
+              </p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/adsevenfour/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Andy Davies</a
+                >
+              </p>
+              <p>Design Principal at The London Stock Exchange</p>
+            </article>
+            <article class="quote">
+              <p>
+                "A positive, enthusiastic team player with lots of strategies to generate ideas
+                and make working both fun and productive. He's a lovely person to have in the
+                office and can present art work to a high standard."
+              </p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/aimeealewis/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Aimee Lewis</a
+                >
+              </p>
+              <p>Senior Copywriter | Creative Director at Meta</p>
+            </article>
+            <article class="quote">
+              <p>
+                "Gabriel is brilliant. Not only is he a superbly talented designer, he's a great
+                guy too."
+              </p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/jaimesleggett/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Jaimes Leggett</a
+                >
+              </p>
+              <p>Group CEO at M&amp;C Saatchi</p>
+            </article>
+            <article class="quote">
+              <p>
+                "His cool and pixel perfect design style was extremely positively received and
+                contributed to the positive and friendly relationship we have with this client."
+              </p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/sibylletretera/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Sibylle Tretera</a
+                >
+              </p>
+              <p>Head of Creative Strategy at Pinterest</p>
+            </article>
+            <article class="quote">
+              <p>
+                "A flair for the conceptual, as well as design, means his ideas are always
+                communicated to the highest level. He is also a joy to work with and I hope I get
+                to work with him again."
+              </p>
+              <p>
+                <a
+                  class="md-link"
+                  href="https://www.linkedin.com/in/sarah-dunleavy-5a256910/"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Sarah Dunleavy</a
+                >
+              </p>
+              <p>Design Director at Deliveroo</p>
+            </article>
+            </div>
+          </section>
+        <footer class="terminal-footer" aria-hidden="true">
+          <p class="terminal-footer__line" data-terminal-login></p>
+          <p class="terminal-footer__line terminal-footer__prompt">
+            gabrielcomym@Gabriels-MacBook-Pro ~ %
+            <span class="terminal-footer__cursor"></span>
+          </p>
+        </footer>
+      </article>
+      <section class="video-reveal" aria-label="Featured video">
+        <div class="video-reveal__sticky">
+          <div class="video-reveal__frame">
+            <video
+              class="video-reveal__media"
+              src="./video.mov"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+            ></video>
+          </div>
+        </div>
+      </section>
+    </main>
+    <textarea class="page-source" data-markdown-source hidden>
+# Gabriel Comym
+
+## Contact
+
+- Email: [gabrielcomym@gmail.com](mailto:gabrielcomym@gmail.com)
+- LinkedIn: [linkedin.com/in/gabrielcomym](https://www.linkedin.com/in/gabrielcomym/)
+- Portfolio: [www.comym.co](http://www.comym.co)
+- Phone: +55 11 99438 0079
+
+## Overview
+
+I’m a product design expert and creative with 20 years of experience, with seven of those dedicated to advanced analytics.
+
+My work focuses on design direction for AI-driven products across machine learning, GenAI and agentic applications, with a strong focus on AI tools and frameworks for image and video creation. I specialise in crafting user-centred experiences for highly technical audiences in the technology and financial sectors.
+
+Recently, I served as a Principal Designer at [McKinsey & Company](https://www.mckinsey.com/) and as a judge for the [Webby Awards](https://www.webbyawards.com/), [FWA](https://thefwa.com/) and [Awwwards](https://www.awwwards.com/). As former [Kedro](https://kedro.org/) Design Lead, I contributed to the growth of [Linux Foundation AI & Data](https://lfaidata.foundation/) and supported open-source innovation in AI and machine learning.
+
+Previously, as a creative and art director, I collaborated with teams at [TBWA\Media Arts Lab](https://www.mediaartslab.com/), [Wieden+Kennedy](https://www.wk.com/), [Google Creative Lab](https://www.creativelab5.com/) and many more.
+
+Throughout my career I’ve been strongly influenced by modernism, typographic discipline, simplicity, form, function, grid systems and basic geometry. The Swiss school of design remains a central reference in the way I approach visual systems and product design.
+
+I’m currently based across the UK, Sweden, Netherlands, Singapore, Italy, Portugal and Brazil, and I enjoy travelling and getting to know different cultures.
+
+I love the sea, food, music, live concerts, art galleries, audio and visual gear, and having a good time with friends and family.
+
+## WORK
+
+- [Kedro / Live Demo](https://demo.kedro.org/)
+- [Kedro / Experiment Tracking](./case-studies/kedro_experiment_tracking_case_study.md)
+- [Kedro / Modular Pipelines](./case-studies/kedro_modular_pipelines_case_study.md)
+- [WovenLight / Rapid Diagnostic Reports](./case-studies/wovenlight_rapid_diagnostic_reports_case_study.md)
+- [WovenLight / Rebranding](./case-studies/wovenlight_rebranding_case_study.md)
+
+## Selected Clients and Users
+
+- NASA
+- Apple
+- Google
+- Microsoft
+- Samsung
+- Mercedes-Benz
+- Aston Martin
+- Opel
+- Volvo
+- Toyota
+- Red Bull
+- Unilever
+- GE
+- Santander
+- NatWest
+- HSBC
+- Barclays
+- Allianz
+- Emirates
+- McDonald’s
+- KFC
+- BBC
+
+## Career Highlights
+
+- Design Director, Work & Co.
+- Senior Design Manager, Accenture Song
+- Principal Designer, WovenLight
+- Principal Designer, McKinsey & Company
+- Art Director, Google - Google Creative Lab
+- Creative, Google - The Zoo
+- Creative, Wieden+Kennedy
+- Lead Designer, TBWA/Media Arts Lab
+- Lead Designer, Publicis Sapient
+- Lead Product Designer, Songkick
+- Lead Product Designer, Buzzbike
+- Lead Designer, VML
+- Interactive Art Director, Ogilvy One
+- Senior Designer, Wieden+Kennedy
+- Senior Designer, R/GA
+- Senior Designer, BBH
+- Senior Designer, Rehab
+- Senior Designer, Razorfish
+
+## Writing
+
+- [Thoughts on The Canon](https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b)
+- [Digital Aesthetics](https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b)
+
+## Education
+
+- MA Computational Arts - Goldsmiths University of London, London, UK
+- Interactive Art Direction - Hyper Island, Stockholm, Sweden
+- BA Industrial Design - Estacio, Rio, Brazil
+
+## Nationalities
+
+- Brazilian
+- British
+- Italian
+
+## Languages
+
+- Portuguese (native)
+- English (full professional proficiency)
+- Italian (basic)
+
+## Experience
+
+### Design Director / Senior Product Design Manager — Work & Co. / Accenture Song
+
+*Jul 2025 – Feb 2026*
+
+Design leadership. Hands on product design direction for Pfizer, Stone, Bradesco and Santander.
+
+### Principal Designer — WovenLight
+
+*Mar 2024 – May 2025*
+
+Working on highly complex LLM agentic interactions, process automation and user centred experiences for the Private Equity industry.
+
+### Sabbatical
+
+*Apr 2023 – Feb 2024*
+
+### Principal Designer — McKinsey & Company
+
+*May 2018 – Apr 2023*
+
+Led design for AI/ML workflow tools for data scientists and engineers. Designed explainable AI interfaces, simplified complex data pipelines, and led end-to-end design processes. Kedro design lead, contributing to its growth to 10K+ GitHub stars and recognition by Fast Company and AI Awards.
+
+### Designer — Various
+
+*Mar 2004 – May 2018*
+
+Interactive art direction, creative and product design for VR, web, and native applications. Worked with agencies and brands including Apple, Google, Allianz, Aston Martin, Ballantine’s, Barclays, BBC, Buzzbike, Capital FM, Claro, Diageo, Emirates, Farm, GE, HSBC, John Frieda, KFC, Kraft Foods, McDonald’s, Meraas, Mercedes-Benz, Microsoft, NatWest, New Look, Opel, Petrobras, RBS, Red Bull, Reserva, Samsung, Sony, Sony Music, Toyota, Vivo, Volvo, Warner, Warner Music, Weetabix, Yell and others.
+
+## Awards and Recognition
+
+- AI Awards - Gold - Best Technical Tool or Framework for AI
+- Fast Company Innovation by Design Award - Honour
+- D&AD White Pencil - Creativity for Good
+- Cannes Lions - Digital & Social - Shortlist
+- Campaign Event Awards - Gold
+- Lovie Awards - Gold
+- FWA - Site Of The Day
+- Behance Graphic Design
+- Behance Interactive
+- Behance Motion
+- Colunistas Awards - Grand Prix
+- Colunistas Awards - Gold
+- Colunistas Awards - Silver
+- Brazilian Advertising Festival - Bronze
+
+## Latest Certifications
+
+- AI-Driven Product Strategy - Northwestern University - Kellogg School of Management
+- IDEO U Human-Centered Strategy
+- LangChain for LLM Application Development
+- Multi AI Agent Systems with crewAI
+- Python for Beginners
+
+## Selected Testimonials
+
+> "Gabriel has an incredible eye for detail and in the short period of time I worked with him at Google he brought that attention and precision in his style to a number of pitches and projects I was involved in."
+>
+> Joe Fry  
+> Partner Innovation at Google
+
+> "Gabriel's work as a Lead Designer on Kedro has been nothing short of amazing!"
+>
+> Ivan Danov  
+> Software Engineer at Palantir
+
+> "Gabriel stands out as someone who tries to understand the business needs behind decisions."
+>
+> Carlos Ferrão  
+> Senior Program Manager at Google
+
+> "As an engineer I've learnt a lot from Gabriel about design as well as how to think out of the box and build successful products."
+>
+> Merel Theisen  
+> Principal Software Engineer at QuantumBlack, AI by McKinsey
+
+> "He's a very talented designer and all round nice guy, the work he produced was high quality and the clients loved it! Can't recommend him enough!"
+>
+> Leon Bayliss  
+> Product Designer | Engineer at Meta
+
+> "Any company that values design understands what it can achieve and knows that it takes time, space and trust will be bloody lucky to have him as part of their team."
+>
+> Andy Davies  
+> Design Principal at The London Stock Exchange
+
+> "A positive, enthusiastic team player with lots of strategies to generate ideas and make working both fun and productive. He's a lovely person to have in the office and can present art work to a high standard."
+>
+> Aimee Lewis  
+> Senior Copywriter | Creative Director at Meta
+
+> "Gabriel is brilliant. Not only is he a superbly talented designer, he's a great guy too."
+>
+> Jaimes Leggett  
+> Group CEO at M&C Saatchi
+
+> "His cool and pixel perfect design style was extremely positively received and contributed to the positive and friendly relationship we have with this client."
+>
+> Sibylle Tretera  
+> Head of Creative Strategy at Pinterest
+
+> "A flair for the conceptual, as well as design, means his ideas are always communicated to the highest level. He is also a joy to work with and I hope I get to work with him again."
+>
+> Sarah Dunleavy  
+> Design Director at Deliveroo
+    </textarea>
+    <textarea class="page-source" data-plain-text-source hidden>
+Comym
+
+Human-Centered Design. AI-Powered Systems.
+
+I’m a product design expert and creative with 20 years of experience, with seven of those dedicated to advanced analytics.
+
+My work focuses on design direction for AI-driven products across machine learning, GenAI and agentic applications, with a strong focus on AI tools and frameworks for image and video creation. I specialise in crafting user-centred experiences for highly technical audiences in the technology and financial sectors.
+
+Products I’ve designed are used by some of the world’s most recognised organisations such as NASA, Apple, Google, Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull, HSBC, Santander, Barclays and more.
+
+Recently, I served as a Principal Designer at McKinsey & Company - https://www.mckinsey.com/ and judge for the Webby Awards - https://www.webbyawards.com/, FWA - https://thefwa.com/ and Awwwards - https://www.awwwards.com/. As the former Kedro Design Lead - https://kedro.org/ I contributed to the Linux Foundation AI & Data - https://lfaidata.foundation/, driving open-source innovation in AI and machine learning.
+
+Previously, as a creative and art director I’ve collaborated with creative teams at TBWA\Media Arts Lab - https://www.mediaartslab.com/, Wieden+Kennedy - https://www.wk.com/, Google Creative Lab - https://www.creativelab5.com/ and many more.
+
+Throughout my career I’ve been greatly influenced by modernism, strong typographical style, simplicity, form, function, grid systems and basic geometry. The Swiss school of design has been of great inspiration for me.
+
+I’m currently based in the UK, Sweden, Netherlands, Singapore, Italy, Portugal, Brazil and I do enjoy travelling and getting to know different cultures.
+
+I love the sea, food, music, live concerts, art galleries, audio and visual gear and having a good time with friends and family.
+
+Selected clients and users
+NASA
+Apple
+Google
+Microsoft
+Samsung
+Mercedes-Benz
+Aston Martin
+Opel
+Volvo
+Toyota
+Red Bull
+Unilever
+GE
+Santander
+NatWest
+HSBC
+Barclays
+Allianz
+Emirates
+McDonald’s
+KFC
+BBC
+
+Career highlights
+Design Director, Work & Co.
+Senior Design Manager, Accenture Song
+Principal Designer, WovenLight
+Principal Designer, McKinsey & Company
+Art Director, Google - Google Creative Lab
+Creative, Google - The Zoo
+Creative, Wieden+Kennedy
+Lead Designer, TBWA/Media Arts Lab
+Lead Designer, Publicis Sapient
+Lead Product Designer, Songkick
+Lead Product Designer, Buzzbike
+Lead Designer, VML
+Interactive Art Director, Ogilvy One
+Senior Designer, Wieden+Kennedy
+Senior Designer, R/GA
+Senior Designer, BBH
+Senior Designer, Rehab
+Senior Designer, Razorfish
+
+Awards and recognition
+AI Awards - Gold - Best Technical Tool or Framework for AI
+Fast Company Innovation by Design Award - Honour
+D&AD White Pencil - Creativity for Good
+Cannes Lions - Digital & Social - Shortlist
+Campaign Event Awards - Gold
+Lovie Awards - Gold
+FWA - Site Of The Day
+Behance Graphic Design
+Behance Interactive
+Behance Motion
+Colunistas Awards - Grand Prix
+Colunistas Awards - Gold
+Colunistas Awards - Silver
+Brazilian Advertising Festival - Bronze
+
+Writing
+Thoughts on The Canon: Exploring the Interplay of Form and Function - https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b
+Digital Aesthetics — The primacy of Codes, Experience, Movement and Affect - https://gabrielcomym.medium.com/digital-aesthetics-the-primacy-of-codes-experience-movement-and-affect-9f5bc17d590b
+
+Testimonials
+"Gabriel has an incredible eye for detail and in the short period of time I worked with him at Google he brought that attention and precision in his style to a number of pitches and projects I was involved in."
+Joe Fry - https://www.linkedin.com/in/joeadamfry/
+Partner Innovation at Google
+
+"Gabriel's work as a Lead Designer on Kedro has been nothing short of amazing!"
+Ivan Danov - https://www.linkedin.com/in/idanov/
+Software Engineer at Palantir
+
+"Gabriel stands out as someone who tries to understand the business needs behind decisions."
+Carlos Ferrão - https://www.linkedin.com/in/carlos-ferrao/
+Senior Program Manager at Google
+    </textarea>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>
