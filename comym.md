@@ -63,7 +63,7 @@ I love the sea, food, music, live concerts, art galleries, audio and visual gear
 - Principal Designer, WovenLight
 - Principal Designer, McKinsey & Company
 - Art Director, Google | Google Creative Lab
-- Creative, Google - The Zoo
+- Creative, Google | The Zoo
 - Creative, Wieden+Kennedy
 - Lead Designer, TBWA/Media Arts Lab | Apple
 - Lead Designer, Publicis Sapient
