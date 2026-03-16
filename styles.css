@@ -550,15 +550,18 @@ a:hover {
 
 .main-link {
   margin: 0 0 26px;
+  cursor: pointer;
 }
 
 .main-link__title {
   display: inline-block;
   padding: 1px 4px;
-  background: #f3f4f6;
+  background: #d6d6d6;
   color: #0d1117;
 }
 
+.main-link:hover .main-link__title,
+.main-link:focus-within .main-link__title,
 .main-link__title:hover {
   background: #ffffff;
   text-decoration: none;

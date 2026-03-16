@@ -4,6 +4,7 @@ const markdownSource = markdownSourceNode?.value ?? "";
 const downloadButton = document.querySelector("[data-download-markdown]");
 const terminalLoginLines = Array.from(document.querySelectorAll("[data-terminal-login]"));
 const externalLinkUrls = Array.from(document.querySelectorAll(".main-link__url"));
+const mainLinkCards = Array.from(document.querySelectorAll(".main-link"));
 const bootScreen = document.querySelector("[data-boot-screen]");
 const bootCode = document.querySelector("[data-boot-code]");
 const DOWNLOAD_FEEDBACK_DURATION = 2200;
@@ -170,6 +171,39 @@ const dismissBootScreen = () => {
     document.body.classList.remove("is-booting");
   }, BOOT_SCREEN_FADE_DURATION);
 };
+
+const activateMainLinkCard = (card) => {
+  const titleLink = card.querySelector(".main-link__title");
+  if (!titleLink) return;
+
+  const href = titleLink.getAttribute("href");
+  if (!href) return;
+
+  if (titleLink.target === "_blank") {
+    window.open(href, "_blank", "noopener,noreferrer");
+    return;
+  }
+
+  window.location.assign(href);
+};
+
+mainLinkCards.forEach((card) => {
+  card.tabIndex = 0;
+
+  card.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest(".main-link__title")) {
+      return;
+    }
+
+    activateMainLinkCard(card);
+  });
+
+  card.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    activateMainLinkCard(card);
+  });
+});
 
 downloadButton?.addEventListener("click", () => {
   try {
