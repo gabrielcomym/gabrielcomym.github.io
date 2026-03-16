@@ -15,6 +15,7 @@ const BOOT_SCREEN_MIN_DURATION = 760;
 const BOOT_SCREEN_FADE_DURATION = 140;
 const ICON_SWAP_DURATION = 140;
 const INITIAL_HERO_OFFSET = () => Math.round(window.innerHeight * 0.35);
+const MOBILE_MEDIA_QUERY = "(max-width: 640px)";
 let downloadFeedbackTimeoutId;
 const MAX_VISIBLE_URL_LENGTH = 60;
 const TESTIMONIALS_COLLAPSED_HEIGHT = 400;
@@ -185,8 +186,10 @@ const dismissHeaderTooltips = () => {
   });
 };
 
+const isMobileViewport = () => window.matchMedia(MOBILE_MEDIA_QUERY).matches;
+
 const setInitialHeroViewport = () => {
-  if (window.location.hash) return;
+  if (window.location.hash || isMobileViewport()) return;
   window.scrollTo({ top: INITIAL_HERO_OFFSET(), left: 0, behavior: "auto" });
 };
 
