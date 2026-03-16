@@ -7,28 +7,29 @@ const externalLinkUrls = Array.from(document.querySelectorAll(".main-link__url")
 const bootScreen = document.querySelector("[data-boot-screen]");
 const bootCode = document.querySelector("[data-boot-code]");
 const DOWNLOAD_FEEDBACK_DURATION = 2200;
-const BOOT_SCREEN_MIN_DURATION = 1040;
+const BOOT_SCREEN_MIN_DURATION = 760;
 const BOOT_SCREEN_FADE_DURATION = 140;
 const ICON_SWAP_DURATION = 140;
 let downloadFeedbackTimeoutId;
 const MAX_VISIBLE_URL_LENGTH = 60;
 const bootSnippets = [
-  [["muted", "1"], ["plain", "[init]"], ["plain", " starting portfolio runtime"]],
-  [["muted", "2"], ["plain", "[init]"], ["plain", " loading content manifest"]],
-  [["muted", "3"], ["plain", "[ok]"], ["plain", " fonts ready"]],
-  [["muted", "4"], ["plain", "[ok]"], ["plain", " intro block mounted"]],
-  [["muted", "5"], ["plain", "[ok]"], ["plain", " work index mounted"]],
-  [["muted", "6"], ["plain", "[ok]"], ["plain", " client list mounted"]],
-  [["muted", "7"], ["plain", "[ok]"], ["plain", " career highlights mounted"]],
-  [["muted", "8"], ["plain", "[ok]"], ["plain", " awards block mounted"]],
-  [["muted", "9"], ["plain", "[ok]"], ["plain", " writing index mounted"]],
-  [["muted", "10"], ["plain", "[ok]"], ["plain", " testimonials mounted"]],
-  [["muted", "11"], ["plain", "[ok]"], ["plain", " terminal footer attached"]],
-  [["muted", "12"], ["plain", "[ok]"], ["plain", " media layer attached"]],
-  [["muted", "13"], ["plain", "[sync]"], ["plain", " link map verified"]],
-  [["muted", "14"], ["plain", "[sync]"], ["plain", " markdown export ready"]],
-  [["muted", "15"], ["plain", "[sync]"], ["plain", " download action bound"]],
-  [["muted", "16"], ["plain", "[ready]"], ["plain", " portfolio mounted at /"]],
+  [["muted", "1"], ["plain", "const "], ["blue", "runtime"], ["plain", " = "], ["orange", "\"portfolio\""], ["plain", ";"]],
+  [["muted", "2"], ["plain", "const "], ["blue", "root"], ["plain", " = document.documentElement;"]],
+  [["muted", "3"], ["plain", "const "], ["blue", "page"], ["plain", " = document.querySelector("], ["orange", "\".page\""], ["plain", ");"]],
+  [["muted", "4"], ["plain", "const "], ["blue", "sections"], ["plain", " = ["], ["orange", "\"intro\""], ["plain", ", "], ["orange", "\"work\""], ["plain", ", "], ["orange", "\"clients\""], ["plain", ", "], ["orange", "\"highlights\""], ["plain", ", "], ["orange", "\"awards\""], ["plain", ", "], ["orange", "\"writing\""], ["plain", ", "], ["orange", "\"testimonials\""], ["plain", "];"]],
+  [["muted", "5"], ["plain", "await "], ["blue", "document.fonts.ready"], ["plain", ";"]],
+  [["muted", "6"], ["plain", "const "], ["blue", "manifest"], ["plain", " = sections.filter(Boolean);"]],
+  [["muted", "7"], ["plain", "root.dataset.state"], ["plain", " = "], ["orange", "\"booting\""], ["plain", ";"]],
+  [["muted", "8"], ["plain", "for ("], ["plain", "const "], ["blue", "section"], ["plain", " of manifest) {" ]],
+  [["muted", "9"], ["plain", "  "], ["blue", "console.info"], ["plain", "("], ["orange", "\"mount\""], ["plain", ", section);"]],
+  [["muted", "10"], ["plain", "}"]],
+  [["muted", "11"], ["plain", "page.classList.remove("], ["orange", "\"is-hidden\""], ["plain", ");"]],
+  [["muted", "12"], ["plain", "bindDownloadAction("], ["orange", "\"comym.md\""], ["plain", ");"]],
+  [["muted", "13"], ["plain", "syncMainLinks("], ["orange", "\"work\""], ["plain", ");"]],
+  [["muted", "14"], ["plain", "attachMediaLayer("], ["orange", "\"video.mov\""], ["plain", ");"]],
+  [["muted", "15"], ["plain", "verifyMarkdownExport();"]],
+  [["muted", "16"], ["plain", "root.dataset.state"], ["plain", " = "], ["orange", "\"ready\""], ["plain", ";"]],
+  [["muted", "17"], ["plain", "console.info("], ["orange", "\"portfolio mounted at /\""], ["plain", ");"]],
 ];
 
 const escapeHtml = (value) =>
@@ -46,7 +47,7 @@ const renderBootSnippets = () => {
         )
         .join("");
 
-      return `<p class="boot-screen__snippet" style="animation-delay:${index * 0.04}s">${tokens}</p>`;
+      return `<p class="boot-screen__snippet" style="animation-delay:${index * 0.024}s">${tokens}</p>`;
     })
     .join("");
 };

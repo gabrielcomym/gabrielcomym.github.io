@@ -94,6 +94,9 @@ body.is-booting .page {
 
 .boot-screen__token--muted {
   color: #7b828a;
+  display: inline-block;
+  min-width: 3.5ch;
+  margin-right: 14px;
 }
 
 .boot-screen__token--accent {
