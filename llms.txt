@@ -18,10 +18,6 @@ Comym is the portfolio of Gabriel Comym, a product designer and creative working
 ## Work
 
 - Kedro Live Demo: https://demo.kedro.org/
-- Kedro / Experiment Tracking: https://comym.co/work/kedro-experiment-tracking/
-- Kedro / Modular Pipelines: https://comym.co/work/kedro-modular-pipelines/
-- WovenLight / Rapid Diagnostic Reports: https://comym.co/work/wovenlight-rapid-diagnostic-reports/
-- WovenLight / Rebranding: https://comym.co/work/wovenlight-rebranding/
 
 ## Writing
 
