@@ -4,38 +4,34 @@
 
 - Email: [gabrielcomym@gmail.com](mailto:gabrielcomym@gmail.com)
 - LinkedIn: [linkedin.com/in/gabrielcomym](https://www.linkedin.com/in/gabrielcomym/)
-- Portfolio: [www.comym.co](https://www.comym.co)
+- Portfolio: [www.comym.co](https://comym.co/)
 
 ## Overview
 
-I’m a product designer and creative director with 20 years of experience, including seven focused on advanced analytics, AI systems and technical product design.
+I’m a product design expert and creative with 20 years of experience, with seven of those dedicated to advanced analytics. My expertise spans product design, interactive art direction, computational arts and AI tools and workflows.
 
-My work spans machine learning, GenAI and agentic applications, with a focus on shaping clear, human-centred experiences for complex products in technology and financial services.
+Recently, I served as a Principal Designer at [McKinsey & Company](https://www.mckinsey.com/) and judge for the [Webby Awards](https://www.webbyawards.com/), [FWA](https://thefwa.com/) and [Awwwards](https://www.awwwards.com/). As the former [Kedro](https://kedro.org/) Design Lead, I contributed to the [Linux Foundation AI & Data](https://lfaidata.foundation/), driving open-source innovation in AI and machine learning.
 
-Products I’ve designed are used by organisations including NASA, Apple, Google, Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull, HSBC, Santander and Barclays.
+Previously, as a creative and art director I’ve collaborated with creative teams at [TBWA\Media Arts Lab](https://www.mediaartslab.com/), [Wieden+Kennedy](https://www.wk.com/), [Google Creative Lab](https://www.creativelab5.com/) and many more.
 
-More recently, I served as a Principal Designer at [McKinsey & Company](https://www.mckinsey.com/) and as a judge for the [Webby Awards](https://www.webbyawards.com/), [FWA](https://thefwa.com/) and [Awwwards](https://www.awwwards.com/). As former [Kedro](https://kedro.org/) Design Lead, I contributed to the growth of [Linux Foundation AI & Data](https://lfaidata.foundation/) and helped drive open-source innovation in AI and machine learning.
+Throughout my career I’ve been greatly influenced by modernism, strong typographical style, simplicity, form, function, grid systems and basic geometry. The Swiss school of design has been of great inspiration for me.
 
-I’ve also worked with creative teams at [TBWA\Media Arts Lab](https://www.mediaartslab.com/), [Wieden+Kennedy](https://www.wk.com/) and [Google Creative Lab](https://www.creativelab5.com/).
+I’m currently based in ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~, Brazil and I do enjoy travelling and getting to know different cultures.
 
-My approach is shaped by modernism, typographic discipline, simplicity, form, function, grid systems and geometry. The Swiss school remains a strong influence on how I think about visual systems and product design.
-
-I’m currently based in ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~, Brazil, and I enjoy travelling and getting to know different cultures.
-
-I love the sea, music, food, art galleries, book shops, audio and visual gear and having a good time with friends and family.
+I love the sea, food, music, live concerts, art galleries, audio and visual gear and having a good time with friends and family.
 
 ## WORK
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
   Live Kedro Viz demo for exploring pipelines, lineage and modular workflows.
-- Kedro / Experiment Tracking
-  Integrating experiment tracking and model performance into Kedro Viz. Private case study available on request.
-- Kedro / Modular Pipelines
-  Making modular pipelines easier to understand, navigate and explain. Private case study available on request.
-- WovenLight / Rapid Diagnostic Reports
-  AI-native internal product for rapid diagnostics, summaries and commercial storytelling. Private case study available on request.
-- WovenLight / Rebranding
-  Brand system evolution to improve trust, consistency and investment readiness. Private case study available on request.
+- [Kedro / Experiment Tracking](https://cases.comym.co/kedro-experiment-tracking/)
+  Integrating experiment tracking and model performance into Kedro Viz.
+- [Kedro / Modular Pipelines](https://cases.comym.co/kedro-modular-pipelines/)
+  Making modular pipelines easier to understand, navigate and explain.
+- [WovenLight / Rapid Diagnostic Reports](https://cases.comym.co/wovenlight-rapid-diagnostic-reports/)
+  AI-native internal product for rapid diagnostics, summaries and commercial storytelling.
+- [WovenLight / Rebranding](https://cases.comym.co/wovenlight-rebranding/)
+  Brand system evolution to improve trust, consistency and investment readiness.
 
 ## Selected Clients and Users
 
@@ -94,53 +90,11 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 - Interactive Art Direction - Hyper Island, Stockholm, Sweden
 - BA Industrial Design - Estacio, Rio, Brazil
 
-## Nationalities
-
-- Brazilian
-- British
-- Italian
-
-## Languages
-
-- Portuguese (native)
-- English (full professional proficiency)
-- Italian (basic)
-
-## Experience
-
-### Design Director / Senior Product Design Manager — Work & Co. / Accenture Song
-
-*Jul 2025 – Feb 2026*
-
-Design leadership and hands-on product direction across healthcare, fintech and financial services engagements.
-
-### Principal Designer — WovenLight
-
-*Mar 2024 – May 2025*
-
-Working on highly complex LLM agentic interactions, process automation and user centred experiences for the Private Equity industry.
-
-### Sabbatical
-
-*Apr 2023 – Feb 2024*
-
-### Principal Designer — McKinsey & Company
-
-*May 2018 – Apr 2023*
-
-Led design for AI/ML workflow tools for data scientists and engineers. Designed explainable AI interfaces, simplified complex data pipelines, and led end-to-end design processes. Kedro design lead, contributing to its growth to 10K+ GitHub stars and recognition by Fast Company and AI Awards.
-
-### Designer — Various
-
-*Mar 2004 – May 2018*
-
-Interactive art direction, creative and product design for VR, web, and native applications. Worked with agencies and brands including Apple, Google, Allianz, Aston Martin, Ballantine’s, Barclays, BBC, Buzzbike, Capital FM, Claro, Diageo, Emirates, Farm, GE, HSBC, John Frieda, KFC, Kraft Foods, McDonald’s, Meraas, Mercedes-Benz, Microsoft, NatWest, New Look, Opel, Petrobras, RBS, Red Bull, Reserva, Samsung, Sony, Sony Music, Toyota, Vivo, Volvo, Warner, Warner Music, Weetabix, Yell and others.
-
 ## Awards and Recognition
 
 - AI Awards
 - Fast Company Innovation by Design Award
-- D&AD White Pencil
+- D&AD
 - Cannes Lions
 - Campaign Event Awards
 - Lovie Awards
@@ -152,6 +106,7 @@ Interactive art direction, creative and product design for VR, web, and native a
 ## Latest Certifications
 
 - AI-Driven Product Strategy - Northwestern University - Kellogg School of Management
+- Machine Learning Specialization - DeepLearning.AI
 - IDEO U Human-Centered Strategy
 - LangChain for LLM Application Development
 - Multi AI Agent Systems with crewAI
@@ -162,34 +117,29 @@ Interactive art direction, creative and product design for VR, web, and native a
 > "Gabriel has an incredible eye for detail and in the short period of time I worked with him at Google he brought that attention and precision in his style to a number of pitches and projects I was involved in."
 >
 > Joe Fry  
-> Partner Innovation at Google
+> Partner Innovation @ Google
 
 > "Gabriel's work as a Lead Designer on Kedro has been nothing short of amazing!"
 >
 > Ivan Danov  
-> Software Engineer at Palantir
+> Group Engineering Lead @ PhysicsX
 
 > "Gabriel stands out as someone who tries to understand the business needs behind decisions."
 >
 > Carlos Ferrão  
-> Senior Program Manager at Google
+> Senior Program Manager @ Google
 
 > "As an engineer I've learnt a lot from Gabriel about design as well as how to think out of the box and build successful products."
 >
 > Merel Theisen  
-> Principal Software Engineer at QuantumBlack, AI by McKinsey
+> Principal Software Engineer @ QuantumBlack, AI by McKinsey
 
 > "He's a very talented designer and all round nice guy, the work he produced was high quality and the clients loved it! Can't recommend him enough!"
 >
 > Leon Bayliss  
-> Product Designer | Engineer at Meta
-
-> "Gabriel is brilliant. Not only is he a superbly talented designer, he's a great guy too."
->
-> Jaimes Leggett  
-> Group CEO at M&C Saatchi
+> Product Designer | Engineer @ Meta
 
 > "His cool and pixel perfect design style was extremely positively received and contributed to the positive and friendly relationship we have with this client."
 >
 > Sibylle Tretera  
-> Head of Creative Strategy at Pinterest
+> Head of Creative Strategy @ Pinterest
