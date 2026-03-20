@@ -32,8 +32,8 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
   Kedro is a toolbox for production-ready data pipelines.
 - [Performance AI](https://cases.comym.co/kedro-modular-pipelines/)
   Model performance and experiment tracking tool.
-- [WovenLight / Rapid Diagnostic Reports](https://cases.comym.co/wovenlight-rapid-diagnostic-reports/)
-  AI-native internal product for rapid diagnostics, summaries and commercial storytelling.
+- [Rapid Diagnostic Reports](https://cases.comym.co/rapid-diagnostic-reports/)
+  LLM drivel tool for Private Equity diagnostics
 
 ## Selected Clients and Users
 
