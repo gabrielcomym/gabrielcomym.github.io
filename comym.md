@@ -33,7 +33,7 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 - [Performance AI](https://cases.comym.co/kedro-modular-pipelines/)
   Model performance and experiment tracking tool.
 - [Rapid Diagnostic Reports](https://cases.comym.co/rapid-diagnostic-reports/)
-  LLM drivel tool for Private Equity diagnostics
+  LLM driven tool for Private Equity diagnostics.
 
 ## Selected Clients and Users
 
