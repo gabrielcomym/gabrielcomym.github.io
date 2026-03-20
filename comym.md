@@ -28,10 +28,10 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
   Live Kedro Viz demo for exploring pipelines, lineage and modular workflows.
-- [Kedro](https://kedro.org/)
+- [Kedro](https://cases.comym.co/kedro-experiment-tracking/)
   Kedro is a toolbox for production-ready data pipelines.
 - [Performance AI](https://cases.comym.co/kedro-modular-pipelines/)
-  Making modular pipelines easier to understand, navigate and explain.
+  Model performance and experiment tracking tool.
 - [WovenLight / Rapid Diagnostic Reports](https://cases.comym.co/wovenlight-rapid-diagnostic-reports/)
   AI-native internal product for rapid diagnostics, summaries and commercial storytelling.
 
