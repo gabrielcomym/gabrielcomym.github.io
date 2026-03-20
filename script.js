@@ -29,6 +29,9 @@ const BOOT_SCREEN_FADE_DURATION = 180;
 const ABOUT_LAYER_REVEAL_DURATION = 760;
 const ABOUT_LAYER_CONTENT_DELAY = 520;
 const WORK_PREVIEW_BREAKPOINT = 1100;
+const WORK_PREVIEW_MIN_WIDTH = 540;
+const WORK_PREVIEW_MAX_WIDTH = 1040;
+const WORK_PREVIEW_FALLBACK_ASPECT_RATIO = 16 / 9;
 const navigationEntry = performance.getEntriesByType("navigation")[0];
 const isHistoryRestore = navigationEntry?.type === "back_forward";
 const shouldPlayBoot = !isHistoryRestore;
@@ -37,6 +40,7 @@ let downloadFeedbackTimeoutId;
 let aboutRevealTimeoutId;
 let aboutCloseTimeoutId;
 let workPreviewFrame = 0;
+let aboutCursorFrame = 0;
 let activeWorkPreviewTrigger = null;
 
 const workPreviewMotion = {
@@ -53,6 +57,13 @@ const workPreviewMotion = {
   targetRotateY: 0,
   targetShadowX: 0,
   targetShadowY: 0,
+};
+
+const aboutCursorMotion = {
+  currentX: window.innerWidth / 2,
+  currentY: window.innerHeight / 2,
+  targetX: window.innerWidth / 2,
+  targetY: window.innerHeight / 2,
 };
 
 const bootSnippets = [
@@ -277,14 +288,86 @@ const queueWorkPreviewFrame = () => {
   workPreviewFrame = window.requestAnimationFrame(animateWorkPreview);
 };
 
-const updateWorkPreviewTargets = (event) => {
-  if (!(workPreview instanceof HTMLElement)) return;
+const isHomeInteractionLocked = () => document.body.classList.contains("is-booting");
 
-  const rect = workPreview.getBoundingClientRect();
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+const getWorkPreviewAspectRatio = () => {
+  if (
+    workPreviewImage instanceof HTMLImageElement &&
+    workPreviewImage.naturalWidth > 0 &&
+    workPreviewImage.naturalHeight > 0
+  ) {
+    return workPreviewImage.naturalWidth / workPreviewImage.naturalHeight;
+  }
+
+  return WORK_PREVIEW_FALLBACK_ASPECT_RATIO;
+};
+
+const syncWorkPreviewSize = () => {
+  if (!(workPreview instanceof HTMLElement)) {
+    return {
+      width: 0,
+      height: 0,
+      viewportPadding: 28,
+    };
+  }
+
+  const viewportGrowth = clamp((window.innerWidth - 1280) / 640, 0, 1);
+  const aspectRatio = getWorkPreviewAspectRatio();
+  const viewportPadding = Math.round(28 + viewportGrowth * 18);
+  const maxWidth = Math.max(window.innerWidth - viewportPadding * 2, 0);
+  const maxHeight = Math.max(window.innerHeight - viewportPadding * 2, 0);
+  const preferredWidth = Math.min(
+    window.innerWidth * (0.43 + viewportGrowth * 0.12),
+    620 + viewportGrowth * (WORK_PREVIEW_MAX_WIDTH - 620),
+    WORK_PREVIEW_MAX_WIDTH
+  );
+  const preferredHeight = Math.min(
+    window.innerHeight * (0.47 + viewportGrowth * 0.13),
+    maxHeight
+  );
+
+  let width = Math.min(preferredWidth, maxWidth);
+  let height = width / aspectRatio;
+
+  if (height > preferredHeight) {
+    height = preferredHeight;
+    width = height * aspectRatio;
+  }
+
+  const minWidth = Math.min(
+    maxWidth,
+    WORK_PREVIEW_MIN_WIDTH + viewportGrowth * 120
+  );
+
+  if (width < minWidth) {
+    width = minWidth;
+    height = width / aspectRatio;
+
+    if (height > maxHeight) {
+      height = maxHeight;
+      width = height * aspectRatio;
+    }
+  }
+
+  workPreview.style.setProperty("--preview-width", `${width.toFixed(2)}px`);
+
+  return {
+    width,
+    height,
+    viewportPadding,
+  };
+};
+
+const updateWorkPreviewTargets = (event, trigger) => {
+  if (!(trigger instanceof HTMLElement)) return;
+
+  const rect = trigger.getBoundingClientRect();
   const centerX = rect.left + rect.width / 2;
   const centerY = rect.top + rect.height / 2;
-  const xRatio = Math.max(-1, Math.min(1, (event.clientX - centerX) / (rect.width / 2)));
-  const yRatio = Math.max(-1, Math.min(1, (event.clientY - centerY) / (rect.height / 2)));
+  const xRatio = Math.max(-1, Math.min(1, (event.clientX - centerX) / (rect.width / 2 || 1)));
+  const yRatio = Math.max(-1, Math.min(1, (event.clientY - centerY) / (rect.height / 2 || 1)));
 
   workPreviewMotion.targetX = xRatio * 18;
   workPreviewMotion.targetY = yRatio * 14;
@@ -315,7 +398,7 @@ const showWorkPreview = (trigger, event) => {
 
   workPreviewImage.alt = trigger.dataset.previewAlt || "";
   workPreviewMotion.active = true;
-  updateWorkPreviewTargets(event);
+  updateWorkPreviewTargets(event, trigger);
   workPreview.classList.add("is-visible");
   workPreview.setAttribute("aria-hidden", "false");
   positionWorkPreview(trigger);
@@ -342,45 +425,58 @@ const hideWorkPreview = () => {
   queueWorkPreviewFrame();
 };
 
-const resolveWorkPreviewTrigger = (clientY) => {
-  for (const trigger of workPreviewTriggers) {
-    if (!(trigger instanceof HTMLElement)) continue;
-    const rect = trigger.getBoundingClientRect();
-    if (clientY >= rect.top && clientY <= rect.bottom) {
-      return trigger;
-    }
-  }
-
-  return null;
-};
-
 const resetAboutScroll = () => {
   if (!(aboutContent instanceof HTMLElement)) return;
   aboutContent.scrollTo({ top: 0, left: 0, behavior: "auto" });
 };
 
-const syncAboutCursor = (event) => {
+const syncAboutCursorState = () => {
   if (!(aboutCursor instanceof HTMLElement)) return;
-  aboutCursor.style.setProperty("--about-cursor-x", `${event.clientX}px`);
-  aboutCursor.style.setProperty("--about-cursor-y", `${event.clientY}px`);
+  aboutCursor.style.setProperty("--about-cursor-x", `${aboutCursorMotion.currentX}px`);
+  aboutCursor.style.setProperty("--about-cursor-y", `${aboutCursorMotion.currentY}px`);
+};
+
+const animateAboutCursor = () => {
+  aboutCursorFrame = 0;
+
+  aboutCursorMotion.currentX += (aboutCursorMotion.targetX - aboutCursorMotion.currentX) * 0.28;
+  aboutCursorMotion.currentY += (aboutCursorMotion.targetY - aboutCursorMotion.currentY) * 0.28;
+  syncAboutCursorState();
+
+  const isSettled =
+    Math.abs(aboutCursorMotion.targetX - aboutCursorMotion.currentX) < 0.16 &&
+    Math.abs(aboutCursorMotion.targetY - aboutCursorMotion.currentY) < 0.16;
+
+  if (!isSettled) {
+    aboutCursorFrame = window.requestAnimationFrame(animateAboutCursor);
+  }
+};
+
+const queueAboutCursorFrame = () => {
+  if (aboutCursorFrame) return;
+  aboutCursorFrame = window.requestAnimationFrame(animateAboutCursor);
+};
+
+const syncAboutCursor = (event) => {
+  aboutCursorMotion.targetX = event.clientX;
+  aboutCursorMotion.targetY = event.clientY;
+  queueAboutCursorFrame();
 };
 
 const positionWorkPreview = (trigger) => {
   if (!(trigger instanceof HTMLElement) || !(workPreview instanceof HTMLElement)) return;
 
-  const rect = trigger.getBoundingClientRect();
-  const gap = Math.max(28, window.innerWidth * 0.022);
-  const previewBounds = workPreview.getBoundingClientRect();
-  const previewWidth = previewBounds.width || Math.min(window.innerWidth * 0.52, 760);
-  const previewHeight = previewBounds.height || previewWidth / 1.46;
-  const viewportPadding = 28;
+  const {
+    width: previewWidth,
+    height: previewHeight,
+    viewportPadding,
+  } = syncWorkPreviewSize();
 
-  let left = rect.right + gap;
+  let left = window.innerWidth / 2 - previewWidth / 2;
   const maxLeft = window.innerWidth - previewWidth - viewportPadding;
-  left = Math.min(left, maxLeft);
-  left = Math.max(left, rect.right + 12);
+  left = Math.min(Math.max(left, viewportPadding), maxLeft);
 
-  let top = rect.top + rect.height / 2;
+  let top = window.innerHeight / 2;
   const minTop = viewportPadding + previewHeight / 2;
   const maxTop = window.innerHeight - viewportPadding - previewHeight / 2;
   top = Math.min(Math.max(top, minTop), maxTop);
@@ -398,37 +494,40 @@ const bindWorkPreview = () => {
     return;
   }
 
-  document.addEventListener("pointermove", (event) => {
-    if (event.pointerType && event.pointerType !== "mouse") {
-      hideWorkPreview();
-      return;
-    }
+  workPreviewTriggers.forEach((trigger) => {
+    trigger.addEventListener("mouseenter", (event) => {
+      if (
+        isHomeInteractionLocked() ||
+        window.innerWidth <= WORK_PREVIEW_BREAKPOINT ||
+        document.body.classList.contains("is-about-open")
+      ) {
+        hideWorkPreview();
+        return;
+      }
 
-    if (window.innerWidth <= WORK_PREVIEW_BREAKPOINT || document.body.classList.contains("is-about-open")) {
-      hideWorkPreview();
-      return;
-    }
+      if (!(trigger instanceof HTMLElement)) return;
 
-    const nextTrigger = resolveWorkPreviewTrigger(event.clientY);
-    if (!(nextTrigger instanceof HTMLElement)) {
-      hideWorkPreview();
-      return;
-    }
-
-    if (activeWorkPreviewTrigger !== nextTrigger) {
       setWorkPreviewTriggerState(activeWorkPreviewTrigger, false);
-      activeWorkPreviewTrigger = nextTrigger;
+      activeWorkPreviewTrigger = trigger;
       setWorkPreviewTriggerState(activeWorkPreviewTrigger, true);
       showWorkPreview(activeWorkPreviewTrigger, event);
-      return;
-    }
+    });
 
-    updateWorkPreviewTargets(event);
-    queueWorkPreviewFrame();
+    trigger.addEventListener("mousemove", (event) => {
+      if (!workPreviewMotion.active || activeWorkPreviewTrigger !== trigger) return;
+      updateWorkPreviewTargets(event, trigger);
+      queueWorkPreviewFrame();
+    });
+
+    trigger.addEventListener("mouseleave", () => {
+      if (activeWorkPreviewTrigger !== trigger) return;
+      hideWorkPreview();
+    });
   });
 
-  document.addEventListener("pointerleave", () => {
-    hideWorkPreview();
+  workPreviewImage.addEventListener("load", () => {
+    if (!(activeWorkPreviewTrigger instanceof HTMLElement)) return;
+    positionWorkPreview(activeWorkPreviewTrigger);
   });
 };
 
@@ -438,6 +537,10 @@ const bindMainLinkNavigation = () => {
   mainLinks.forEach((item) => {
     item.addEventListener("click", (event) => {
       if (!(item instanceof HTMLElement)) return;
+      if (isHomeInteractionLocked()) {
+        event.preventDefault();
+        return;
+      }
       if (event.target instanceof Element && event.target.closest("a, button")) return;
 
       const anchor = item.querySelector(".main-link__title");
@@ -462,6 +565,11 @@ const openAboutLayer = () => {
 
   hideWorkPreview();
   resetAboutScroll();
+  aboutCursorMotion.currentX = window.innerWidth / 2;
+  aboutCursorMotion.currentY = window.innerHeight / 2;
+  aboutCursorMotion.targetX = window.innerWidth / 2;
+  aboutCursorMotion.targetY = window.innerHeight / 2;
+  syncAboutCursorState();
   document.body.classList.add("is-about-open", "is-about-transitioning");
   dismissHeaderTooltips();
   aboutOpenButton?.blur();
@@ -609,6 +717,7 @@ bindWorkPreview();
 bindMainLinkNavigation();
 truncateExternalLinkUrls();
 updateTerminalLoginLines();
+syncWorkPreviewSize();
 if (shouldPlayBoot) {
   renderBootSnippets();
 }
@@ -617,6 +726,14 @@ window.setInterval(updateTerminalLoginLines, 1000);
 window.addEventListener("blur", hideWorkPreview);
 window.addEventListener("focus", dismissHeaderTooltips);
 window.addEventListener("resize", hideWorkPreview);
+window.addEventListener("resize", () => {
+  syncWorkPreviewSize();
+  aboutCursorMotion.currentX = window.innerWidth / 2;
+  aboutCursorMotion.currentY = window.innerHeight / 2;
+  aboutCursorMotion.targetX = window.innerWidth / 2;
+  aboutCursorMotion.targetY = window.innerHeight / 2;
+  syncAboutCursorState();
+});
 window.addEventListener("pageshow", (event) => {
   dismissHeaderTooltips();
   hideWorkPreview();

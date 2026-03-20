@@ -848,11 +848,12 @@ body.is-about-open .about-layer__back {
   --preview-scale: 0.965;
   --preview-top: 50vh;
   --preview-left: calc(50vw + 48px);
+  --preview-width: min(52vw, 760px);
   position: fixed;
   top: var(--preview-top);
   left: var(--preview-left);
   z-index: 14;
-  width: min(52vw, 760px);
+  width: min(var(--preview-width), calc(100vw - 56px));
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -871,9 +872,8 @@ body.is-about-open .about-layer__back {
 .work-hover-preview__frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.46 / 1;
-  overflow: hidden;
-  background: #090909;
+  overflow: visible;
+  background: transparent;
   box-shadow:
     0 28px 90px rgba(0, 0, 0, 0.45),
     0 0 0 1px rgba(255, 255, 255, 0.07);
@@ -899,8 +899,7 @@ body.is-about-open .about-layer__back {
 .work-hover-preview__image {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
 .block .main-link__description {
