@@ -14,6 +14,11 @@ const bootCode = document.querySelector("[data-boot-code]");
 const aboutLayer = document.querySelector("[data-about-layer]");
 const aboutOpenButton = document.querySelector("[data-about-open]");
 const aboutCloseButton = document.querySelector("[data-about-close]");
+const aboutContent = document.querySelector("[data-about-content]");
+const aboutCursor = document.querySelector("[data-about-cursor]");
+const workPreview = document.querySelector("[data-work-preview]");
+const workPreviewImage = document.querySelector("[data-work-preview-image]");
+const workPreviewTriggers = Array.from(document.querySelectorAll(".main-link[data-preview-src]"));
 
 const DOWNLOAD_FEEDBACK_DURATION = 2200;
 const ICON_SWAP_DURATION = 140;
@@ -23,6 +28,7 @@ const BOOT_SCREEN_MIN_DURATION = 1000;
 const BOOT_SCREEN_FADE_DURATION = 180;
 const ABOUT_LAYER_REVEAL_DURATION = 760;
 const ABOUT_LAYER_CONTENT_DELAY = 520;
+const WORK_PREVIEW_BREAKPOINT = 1100;
 const navigationEntry = performance.getEntriesByType("navigation")[0];
 const isHistoryRestore = navigationEntry?.type === "back_forward";
 const shouldPlayBoot = !isHistoryRestore;
@@ -30,6 +36,24 @@ const shouldPlayBoot = !isHistoryRestore;
 let downloadFeedbackTimeoutId;
 let aboutRevealTimeoutId;
 let aboutCloseTimeoutId;
+let workPreviewFrame = 0;
+let activeWorkPreviewTrigger = null;
+
+const workPreviewMotion = {
+  active: false,
+  currentX: 0,
+  currentY: 0,
+  currentRotateX: 0,
+  currentRotateY: 0,
+  currentShadowX: 0,
+  currentShadowY: 0,
+  targetX: 0,
+  targetY: 0,
+  targetRotateX: 0,
+  targetRotateY: 0,
+  targetShadowX: 0,
+  targetShadowY: 0,
+};
 
 const bootSnippets = [
   [["muted", "1"], ["plain", "const "], ["blue", "runtime"], ["plain", " = "], ["orange", "\"portfolio\""], ["plain", ";"]],
@@ -188,6 +212,247 @@ const dismissHeaderTooltips = () => {
   });
 };
 
+const syncWorkPreviewState = () => {
+  if (!(workPreview instanceof HTMLElement)) return;
+
+  const frame = workPreview.firstElementChild;
+
+  workPreview.style.setProperty("--preview-shift-x", `${workPreviewMotion.currentX.toFixed(2)}px`);
+  workPreview.style.setProperty("--preview-shift-y", `${workPreviewMotion.currentY.toFixed(2)}px`);
+  workPreview.style.setProperty(
+    "--preview-tilt-x",
+    `${workPreviewMotion.currentRotateX.toFixed(2)}deg`
+  );
+  workPreview.style.setProperty(
+    "--preview-tilt-y",
+    `${workPreviewMotion.currentRotateY.toFixed(2)}deg`
+  );
+  workPreview.style.setProperty(
+    "--preview-scale",
+    workPreviewMotion.active ? "1" : "0.965"
+  );
+
+  if (frame instanceof HTMLElement) {
+    frame.style.boxShadow = `${
+      workPreviewMotion.currentShadowX.toFixed(2)
+    }px ${(
+      28 + workPreviewMotion.currentShadowY
+    ).toFixed(2)}px 90px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.07)`;
+  }
+};
+
+const animateWorkPreview = () => {
+  workPreviewFrame = 0;
+
+  const ease = workPreviewMotion.active ? 0.14 : 0.12;
+
+  workPreviewMotion.currentX += (workPreviewMotion.targetX - workPreviewMotion.currentX) * ease;
+  workPreviewMotion.currentY += (workPreviewMotion.targetY - workPreviewMotion.currentY) * ease;
+  workPreviewMotion.currentRotateX +=
+    (workPreviewMotion.targetRotateX - workPreviewMotion.currentRotateX) * ease;
+  workPreviewMotion.currentRotateY +=
+    (workPreviewMotion.targetRotateY - workPreviewMotion.currentRotateY) * ease;
+  workPreviewMotion.currentShadowX +=
+    (workPreviewMotion.targetShadowX - workPreviewMotion.currentShadowX) * ease;
+  workPreviewMotion.currentShadowY +=
+    (workPreviewMotion.targetShadowY - workPreviewMotion.currentShadowY) * ease;
+
+  syncWorkPreviewState();
+
+  const isSettled =
+    Math.abs(workPreviewMotion.targetX - workPreviewMotion.currentX) < 0.08 &&
+    Math.abs(workPreviewMotion.targetY - workPreviewMotion.currentY) < 0.08 &&
+    Math.abs(workPreviewMotion.targetRotateX - workPreviewMotion.currentRotateX) < 0.02 &&
+    Math.abs(workPreviewMotion.targetRotateY - workPreviewMotion.currentRotateY) < 0.02 &&
+    Math.abs(workPreviewMotion.targetShadowX - workPreviewMotion.currentShadowX) < 0.08 &&
+    Math.abs(workPreviewMotion.targetShadowY - workPreviewMotion.currentShadowY) < 0.08;
+
+  if (workPreviewMotion.active || !isSettled) {
+    workPreviewFrame = window.requestAnimationFrame(animateWorkPreview);
+  }
+};
+
+const queueWorkPreviewFrame = () => {
+  if (workPreviewFrame) return;
+  workPreviewFrame = window.requestAnimationFrame(animateWorkPreview);
+};
+
+const updateWorkPreviewTargets = (event) => {
+  if (!(workPreview instanceof HTMLElement)) return;
+
+  const rect = workPreview.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
+  const xRatio = Math.max(-1, Math.min(1, (event.clientX - centerX) / (rect.width / 2)));
+  const yRatio = Math.max(-1, Math.min(1, (event.clientY - centerY) / (rect.height / 2)));
+
+  workPreviewMotion.targetX = xRatio * 18;
+  workPreviewMotion.targetY = yRatio * 14;
+  workPreviewMotion.targetRotateX = -yRatio * 12;
+  workPreviewMotion.targetRotateY = xRatio * 12;
+  workPreviewMotion.targetShadowX = xRatio * 26;
+  workPreviewMotion.targetShadowY = -yRatio * 18;
+};
+
+const setWorkPreviewTriggerState = (trigger, isActive) => {
+  if (!(trigger instanceof HTMLElement)) return;
+  trigger.classList.toggle("is-hovered", isActive);
+};
+
+const showWorkPreview = (trigger, event) => {
+  if (
+    !(trigger instanceof HTMLElement) ||
+    !(workPreview instanceof HTMLElement) ||
+    !(workPreviewImage instanceof HTMLImageElement)
+  ) {
+    return;
+  }
+
+  const src = trigger.dataset.previewSrc;
+  if (src) {
+    workPreviewImage.src = src;
+  }
+
+  workPreviewImage.alt = trigger.dataset.previewAlt || "";
+  workPreviewMotion.active = true;
+  updateWorkPreviewTargets(event);
+  workPreview.classList.add("is-visible");
+  workPreview.setAttribute("aria-hidden", "false");
+  positionWorkPreview(trigger);
+  window.requestAnimationFrame(() => {
+    positionWorkPreview(trigger);
+  });
+  queueWorkPreviewFrame();
+};
+
+const hideWorkPreview = () => {
+  if (!(workPreview instanceof HTMLElement)) return;
+
+  setWorkPreviewTriggerState(activeWorkPreviewTrigger, false);
+  activeWorkPreviewTrigger = null;
+  workPreviewMotion.active = false;
+  workPreviewMotion.targetX = 0;
+  workPreviewMotion.targetY = 0;
+  workPreviewMotion.targetRotateX = 0;
+  workPreviewMotion.targetRotateY = 0;
+  workPreviewMotion.targetShadowX = 0;
+  workPreviewMotion.targetShadowY = 0;
+  workPreview.classList.remove("is-visible");
+  workPreview.setAttribute("aria-hidden", "true");
+  queueWorkPreviewFrame();
+};
+
+const resolveWorkPreviewTrigger = (clientY) => {
+  for (const trigger of workPreviewTriggers) {
+    if (!(trigger instanceof HTMLElement)) continue;
+    const rect = trigger.getBoundingClientRect();
+    if (clientY >= rect.top && clientY <= rect.bottom) {
+      return trigger;
+    }
+  }
+
+  return null;
+};
+
+const resetAboutScroll = () => {
+  if (!(aboutContent instanceof HTMLElement)) return;
+  aboutContent.scrollTo({ top: 0, left: 0, behavior: "auto" });
+};
+
+const syncAboutCursor = (event) => {
+  if (!(aboutCursor instanceof HTMLElement)) return;
+  aboutCursor.style.setProperty("--about-cursor-x", `${event.clientX}px`);
+  aboutCursor.style.setProperty("--about-cursor-y", `${event.clientY}px`);
+};
+
+const positionWorkPreview = (trigger) => {
+  if (!(trigger instanceof HTMLElement) || !(workPreview instanceof HTMLElement)) return;
+
+  const rect = trigger.getBoundingClientRect();
+  const gap = Math.max(28, window.innerWidth * 0.022);
+  const previewBounds = workPreview.getBoundingClientRect();
+  const previewWidth = previewBounds.width || Math.min(window.innerWidth * 0.52, 760);
+  const previewHeight = previewBounds.height || previewWidth / 1.46;
+  const viewportPadding = 28;
+
+  let left = rect.right + gap;
+  const maxLeft = window.innerWidth - previewWidth - viewportPadding;
+  left = Math.min(left, maxLeft);
+  left = Math.max(left, rect.right + 12);
+
+  let top = rect.top + rect.height / 2;
+  const minTop = viewportPadding + previewHeight / 2;
+  const maxTop = window.innerHeight - viewportPadding - previewHeight / 2;
+  top = Math.min(Math.max(top, minTop), maxTop);
+
+  workPreview.style.setProperty("--preview-left", `${left}px`);
+  workPreview.style.setProperty("--preview-top", `${top}px`);
+};
+
+const bindWorkPreview = () => {
+  if (
+    !(workPreview instanceof HTMLElement) ||
+    !(workPreviewImage instanceof HTMLImageElement) ||
+    !workPreviewTriggers.length
+  ) {
+    return;
+  }
+
+  document.addEventListener("pointermove", (event) => {
+    if (event.pointerType && event.pointerType !== "mouse") {
+      hideWorkPreview();
+      return;
+    }
+
+    if (window.innerWidth <= WORK_PREVIEW_BREAKPOINT || document.body.classList.contains("is-about-open")) {
+      hideWorkPreview();
+      return;
+    }
+
+    const nextTrigger = resolveWorkPreviewTrigger(event.clientY);
+    if (!(nextTrigger instanceof HTMLElement)) {
+      hideWorkPreview();
+      return;
+    }
+
+    if (activeWorkPreviewTrigger !== nextTrigger) {
+      setWorkPreviewTriggerState(activeWorkPreviewTrigger, false);
+      activeWorkPreviewTrigger = nextTrigger;
+      setWorkPreviewTriggerState(activeWorkPreviewTrigger, true);
+      showWorkPreview(activeWorkPreviewTrigger, event);
+      return;
+    }
+
+    updateWorkPreviewTargets(event);
+    queueWorkPreviewFrame();
+  });
+
+  document.addEventListener("pointerleave", () => {
+    hideWorkPreview();
+  });
+};
+
+const bindMainLinkNavigation = () => {
+  const mainLinks = Array.from(document.querySelectorAll(".main-link"));
+
+  mainLinks.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      if (!(item instanceof HTMLElement)) return;
+      if (event.target instanceof Element && event.target.closest("a, button")) return;
+
+      const anchor = item.querySelector(".main-link__title");
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+
+      if (anchor.target === "_blank") {
+        window.open(anchor.href, "_blank", "noopener");
+        return;
+      }
+
+      window.location.href = anchor.href;
+    });
+  });
+};
+
 const openAboutLayer = () => {
   if (!(aboutLayer instanceof HTMLElement)) return;
   if (aboutLayer.classList.contains("is-open")) return;
@@ -195,6 +460,8 @@ const openAboutLayer = () => {
   window.clearTimeout(aboutRevealTimeoutId);
   window.clearTimeout(aboutCloseTimeoutId);
 
+  hideWorkPreview();
+  resetAboutScroll();
   document.body.classList.add("is-about-open", "is-about-transitioning");
   dismissHeaderTooltips();
   aboutOpenButton?.blur();
@@ -202,7 +469,12 @@ const openAboutLayer = () => {
   aboutLayer.classList.remove("is-closing", "is-content-visible");
   aboutLayer.classList.add("is-open");
 
+  window.requestAnimationFrame(() => {
+    resetAboutScroll();
+  });
+
   aboutRevealTimeoutId = window.setTimeout(() => {
+    resetAboutScroll();
     aboutLayer.classList.add("is-content-visible");
     document.body.classList.remove("is-about-transitioning");
   }, ABOUT_LAYER_CONTENT_DELAY);
@@ -223,6 +495,7 @@ const closeAboutLayer = () => {
     aboutLayer.classList.remove("is-open", "is-closing");
     aboutLayer.setAttribute("aria-hidden", "true");
     document.body.classList.remove("is-about-open", "is-about-transitioning");
+    resetAboutScroll();
   }, ABOUT_LAYER_REVEAL_DURATION);
 };
 
@@ -323,6 +596,17 @@ aboutCloseButton?.addEventListener("click", () => {
   closeAboutLayer();
 });
 
+aboutLayer?.addEventListener("pointermove", (event) => {
+  if (!document.body.classList.contains("is-about-open")) return;
+  syncAboutCursor(event);
+});
+
+aboutLayer?.addEventListener("click", () => {
+  closeAboutLayer();
+});
+
+bindWorkPreview();
+bindMainLinkNavigation();
 truncateExternalLinkUrls();
 updateTerminalLoginLines();
 if (shouldPlayBoot) {
@@ -330,9 +614,12 @@ if (shouldPlayBoot) {
 }
 
 window.setInterval(updateTerminalLoginLines, 1000);
+window.addEventListener("blur", hideWorkPreview);
 window.addEventListener("focus", dismissHeaderTooltips);
+window.addEventListener("resize", hideWorkPreview);
 window.addEventListener("pageshow", (event) => {
   dismissHeaderTooltips();
+  hideWorkPreview();
 
   if (event.persisted) {
     removeBootScreenImmediately();
@@ -341,7 +628,10 @@ window.addEventListener("pageshow", (event) => {
 document.addEventListener("visibilitychange", () => {
   if (document.visibilityState === "visible") {
     dismissHeaderTooltips();
+    return;
   }
+
+  hideWorkPreview();
 });
 
 document.addEventListener("keydown", (event) => {

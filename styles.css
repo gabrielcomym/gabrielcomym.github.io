@@ -409,6 +409,43 @@ body.is-about-transitioning .sheet__actions .icon-tooltip {
   height: 100vh;
 }
 
+.about-layer__cursor {
+  --about-cursor-x: 50vw;
+  --about-cursor-y: 50vh;
+  position: fixed;
+  top: var(--about-cursor-y);
+  left: var(--about-cursor-x);
+  z-index: 5;
+  width: 52px;
+  height: 52px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.84);
+  transition:
+    opacity 180ms var(--motion-ease-standard),
+    transform 220ms var(--motion-ease-standard);
+}
+
+.about-layer__cursor span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 34px;
+  height: 2px;
+  margin-left: -17px;
+  margin-top: -1px;
+  background: #111111;
+  transform-origin: center;
+}
+
+.about-layer__cursor span:first-child {
+  transform: rotate(45deg);
+}
+
+.about-layer__cursor span:last-child {
+  transform: rotate(-45deg);
+}
+
 .about-layer__back {
   display: inline-flex;
   align-items: center;
@@ -592,8 +629,20 @@ body.is-about-transitioning .sheet__actions .icon-tooltip {
   pointer-events: auto;
 }
 
+body.is-about-open,
+body.is-about-open .about-layer__surface,
+body.is-about-open .about-layer__content,
+body.is-about-open .about-layer__back {
+  cursor: none;
+}
+
 .about-layer.is-open .about-layer__curtain {
   transform: translateY(0);
+}
+
+.about-layer.is-content-visible .about-layer__cursor {
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0) scale(1);
 }
 
 .about-layer.is-content-visible .about-layer__back {
@@ -757,8 +806,11 @@ body.is-about-transitioning .sheet__actions .icon-tooltip {
 }
 
 .main-link {
-  margin: 0 0 26px;
-  cursor: default;
+  position: relative;
+  width: calc(100% + 24px);
+  margin: 0 0 14px -12px;
+  padding: 10px 12px 12px;
+  cursor: pointer;
 }
 
 .main-link[data-private-project] {
@@ -779,6 +831,76 @@ body.is-about-transitioning .sheet__actions .icon-tooltip {
 .main-link__title:hover {
   background: #ffffff;
   text-decoration: none;
+}
+
+.main-link:hover .main-link__title,
+.main-link.is-hovered .main-link__title,
+.main-link:focus-within .main-link__title {
+  background: #ffffff;
+  text-decoration: none;
+}
+
+.work-hover-preview {
+  --preview-shift-x: 0px;
+  --preview-shift-y: 0px;
+  --preview-tilt-x: 0deg;
+  --preview-tilt-y: 0deg;
+  --preview-scale: 0.965;
+  --preview-top: 50vh;
+  --preview-left: calc(50vw + 48px);
+  position: fixed;
+  top: var(--preview-top);
+  left: var(--preview-left);
+  z-index: 14;
+  width: min(52vw, 760px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, -50%, 0);
+  perspective: 1600px;
+  transition:
+    opacity 180ms var(--motion-ease-editorial),
+    visibility 180ms var(--motion-ease-editorial);
+}
+
+.work-hover-preview.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.work-hover-preview__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.46 / 1;
+  overflow: hidden;
+  background: #090909;
+  box-shadow:
+    0 28px 90px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.07);
+  transform:
+    translate3d(var(--preview-shift-x), var(--preview-shift-y), 0)
+    rotateX(var(--preview-tilt-x))
+    rotateY(var(--preview-tilt-y))
+    scale(var(--preview-scale));
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.work-hover-preview__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 24%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.14), transparent 36%);
+  pointer-events: none;
+}
+
+.work-hover-preview__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .block .main-link__description {
@@ -1049,6 +1171,17 @@ body.is-about-transitioning .sheet__actions .icon-tooltip {
     height: 100svh;
   }
 
+  .work-hover-preview {
+    display: none;
+  }
+
+  .main-link {
+    width: calc(100% + 16px);
+    margin-left: -8px;
+    margin-bottom: 8px;
+    padding: 8px;
+  }
+
   .sheet {
     width: 100%;
     margin: 0;
@@ -1093,6 +1226,10 @@ body.is-about-transitioning .sheet__actions .icon-tooltip {
     max-width: none;
     font-size: 40px;
     line-height: 1.24;
+  }
+
+  .about-layer__cursor {
+    display: none;
   }
 
   .about-section {
