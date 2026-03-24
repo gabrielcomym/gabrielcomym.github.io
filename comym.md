@@ -8,7 +8,7 @@
 
 ## Overview
 
-I’m a product designer and creative director with 20 years of experience, including seven focused on advanced analytics, AI systems and technical product design.
+I’m a product designer and creative director with over 20 years of experience, including seven focused on advanced analytics, AI systems and technical product design.
 
 My work spans machine learning, GenAI and agentic applications, with a focus on shaping clear, human-centred experiences for complex products in technology and financial services.
 
@@ -26,11 +26,13 @@ I love the sea, music, food, art galleries, book shops, audio and visual gear an
 
 ## WORK
 
+- Private case pages are served from a separate protected repository in production at `https://cases.comym.co/`.
+
 - [Kedro / Live Demo](https://demo.kedro.org/)
   Live Kedro Viz demo for exploring pipelines, lineage and modular workflows.
-- [Kedro](https://cases.comym.co/kedro-experiment-tracking/)
+- [Kedro](https://cases.comym.co/kedro/)
   Kedro is a toolbox for production-ready data pipelines.
-- [Performance AI](https://cases.comym.co/kedro-modular-pipelines/)
+- [Performance AI](https://cases.comym.co/performance-ai/)
   Model performance and experiment tracking tool.
 - [Rapid Diagnostic Reports](https://cases.comym.co/rapid-diagnostic-reports/)
   LLM driven tool for Private Equity diagnostics.

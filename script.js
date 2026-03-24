@@ -19,6 +19,7 @@ const aboutCursor = document.querySelector("[data-about-cursor]");
 const workPreview = document.querySelector("[data-work-preview]");
 const workPreviewImage = document.querySelector("[data-work-preview-image]");
 const workPreviewTriggers = Array.from(document.querySelectorAll(".main-link[data-preview-src]"));
+const privateCaseLinks = Array.from(document.querySelectorAll("[data-private-case-path]"));
 
 const DOWNLOAD_FEEDBACK_DURATION = 2200;
 const ICON_SWAP_DURATION = 140;
@@ -35,6 +36,10 @@ const WORK_PREVIEW_FALLBACK_ASPECT_RATIO = 16 / 9;
 const navigationEntry = performance.getEntriesByType("navigation")[0];
 const isHistoryRestore = navigationEntry?.type === "back_forward";
 const shouldPlayBoot = !isHistoryRestore;
+
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
 
 let downloadFeedbackTimeoutId;
 let aboutRevealTimeoutId;
@@ -64,6 +69,11 @@ const aboutCursorMotion = {
   currentY: window.innerHeight / 2,
   targetX: window.innerWidth / 2,
   targetY: window.innerHeight / 2,
+};
+
+const lastPointerPosition = {
+  x: window.innerWidth / 2,
+  y: window.innerHeight / 2,
 };
 
 const bootSnippets = [
@@ -220,6 +230,50 @@ const dismissHeaderTooltips = () => {
     if (trigger instanceof HTMLElement) {
       trigger.blur();
     }
+  });
+};
+
+const resetPageScrollToTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
+    window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
+  });
+};
+
+const syncPrivateCaseLinks = () => {
+  if (!privateCaseLinks.length) return;
+
+  const isLocalFile = window.location.protocol === "file:";
+  const isLocalHost =
+    window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+
+  privateCaseLinks.forEach((link) => {
+    if (!(link instanceof HTMLAnchorElement)) return;
+
+    const casePath = link.dataset.privateCasePath;
+    if (!casePath) return;
+
+    const normalizedCasePath = casePath.replace(/^\/+|\/+$/g, "");
+
+    if (isLocalFile) {
+      link.href = new URL(
+        `../comym-private-case-studies/${normalizedCasePath}/index.html`,
+        window.location.href
+      ).href;
+      return;
+    }
+
+    if (isLocalHost) {
+      link.href = `${window.location.protocol}//${window.location.hostname}:8020/${normalizedCasePath}/`;
+      return;
+    }
+
+    link.href = `https://cases.comym.co/${normalizedCasePath}/`;
   });
 };
 
@@ -457,7 +511,19 @@ const queueAboutCursorFrame = () => {
   aboutCursorFrame = window.requestAnimationFrame(animateAboutCursor);
 };
 
+const clampPointerToViewport = (x, y) => ({
+  x: clamp(x, 0, window.innerWidth),
+  y: clamp(y, 0, window.innerHeight),
+});
+
+const updateLastPointerPosition = (x, y) => {
+  const next = clampPointerToViewport(x, y);
+  lastPointerPosition.x = next.x;
+  lastPointerPosition.y = next.y;
+};
+
 const syncAboutCursor = (event) => {
+  updateLastPointerPosition(event.clientX, event.clientY);
   aboutCursorMotion.targetX = event.clientX;
   aboutCursorMotion.targetY = event.clientY;
   queueAboutCursorFrame();
@@ -565,10 +631,10 @@ const openAboutLayer = () => {
 
   hideWorkPreview();
   resetAboutScroll();
-  aboutCursorMotion.currentX = window.innerWidth / 2;
-  aboutCursorMotion.currentY = window.innerHeight / 2;
-  aboutCursorMotion.targetX = window.innerWidth / 2;
-  aboutCursorMotion.targetY = window.innerHeight / 2;
+  aboutCursorMotion.currentX = lastPointerPosition.x;
+  aboutCursorMotion.currentY = lastPointerPosition.y;
+  aboutCursorMotion.targetX = lastPointerPosition.x;
+  aboutCursorMotion.targetY = lastPointerPosition.y;
   syncAboutCursorState();
   document.body.classList.add("is-about-open", "is-about-transitioning");
   dismissHeaderTooltips();
@@ -696,7 +762,8 @@ downloadButton?.addEventListener("click", () => {
   }
 });
 
-aboutOpenButton?.addEventListener("click", () => {
+aboutOpenButton?.addEventListener("click", (event) => {
+  updateLastPointerPosition(event.clientX, event.clientY);
   openAboutLayer();
 });
 
@@ -715,9 +782,11 @@ aboutLayer?.addEventListener("click", () => {
 
 bindWorkPreview();
 bindMainLinkNavigation();
+syncPrivateCaseLinks();
 truncateExternalLinkUrls();
 updateTerminalLoginLines();
 syncWorkPreviewSize();
+resetPageScrollToTop();
 if (shouldPlayBoot) {
   renderBootSnippets();
 }
@@ -728,13 +797,18 @@ window.addEventListener("focus", dismissHeaderTooltips);
 window.addEventListener("resize", hideWorkPreview);
 window.addEventListener("resize", () => {
   syncWorkPreviewSize();
-  aboutCursorMotion.currentX = window.innerWidth / 2;
-  aboutCursorMotion.currentY = window.innerHeight / 2;
-  aboutCursorMotion.targetX = window.innerWidth / 2;
-  aboutCursorMotion.targetY = window.innerHeight / 2;
+  updateLastPointerPosition(lastPointerPosition.x, lastPointerPosition.y);
+  aboutCursorMotion.currentX = lastPointerPosition.x;
+  aboutCursorMotion.currentY = lastPointerPosition.y;
+  aboutCursorMotion.targetX = lastPointerPosition.x;
+  aboutCursorMotion.targetY = lastPointerPosition.y;
   syncAboutCursorState();
 });
+window.addEventListener("pointermove", (event) => {
+  updateLastPointerPosition(event.clientX, event.clientY);
+}, { passive: true });
 window.addEventListener("pageshow", (event) => {
+  resetPageScrollToTop();
   dismissHeaderTooltips();
   hideWorkPreview();
 

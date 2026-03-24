@@ -9,6 +9,5 @@ Allow: /
 
 User-agent: *
 Allow: /
-Disallow: /work/
 
 Sitemap: https://comym.co/sitemap.xml
