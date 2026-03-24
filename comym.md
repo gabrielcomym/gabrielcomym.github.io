@@ -150,7 +150,6 @@ Interactive art direction, creative and product design for VR, web, and native a
 - BA Industrial Design - Estacio, Rio, Brazil
 
 ## Latest Certifications
-
 - AI-Driven Product Strategy - Northwestern University - Kellogg School of Management
 - Machine Learning Specialization - DeepLearning.AI
 - IDEO U Human-Centered Strategy
