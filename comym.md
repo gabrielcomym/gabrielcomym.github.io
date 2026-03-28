@@ -8,34 +8,30 @@
 
 ## Overview
 
-I’m a product designer and creative director with over 20 years of experience, including seven focused on advanced analytics, AI systems and technical product design.
+I help organisations and technical teams identify where AI can create meaningful value in complex workflows.
 
-My work spans machine learning, GenAI and agentic applications, with a focus on shaping clear, human-centred experiences for complex products in technology and financial services.
+My work turns ambiguity into clear product direction and connects technical capability to decisions people can act on.
 
-Products I’ve designed are used by organisations including NASA, Apple, Google, Microsoft, Aston Martin, Volvo, Mercedes-Benz, Red Bull, HSBC, Santander and Barclays.
+I work across opportunity framing, concept development and hands-on product direction. In practice, that means understanding business context, spotting where friction really lives, and shaping products that make complex systems clearer, more useful and easier to work with.
 
-More recently, I served as a Principal Designer at [McKinsey & Company](https://www.mckinsey.com/) and as a judge for the [Webby Awards](https://www.webbyawards.com/), [FWA](https://thefwa.com/) and [Awwwards](https://www.awwwards.com/). As former [Kedro](https://kedro.org/) Design Lead, I contributed to the growth of [Linux Foundation AI & Data](https://lfaidata.foundation/) and helped drive open-source innovation in AI and machine learning.
+Over the past 20 years, I’ve worked across product, systems and creative environments. More recently, as Principal Designer at McKinsey and WovenLight, I worked on AI products and technical tools for advanced analytics, machine learning and private equity, where the challenge was improving decision quality and making sophisticated workflows easier to navigate.
 
-I’ve also worked with creative teams at [TBWA\Media Arts Lab](https://www.mediaartslab.com/), [Wieden+Kennedy](https://www.wk.com/) and [Google Creative Lab](https://www.creativelab5.com/).
+I’ve also worked as Art Director and Creative with teams at Google, and as Lead Designer for Apple at TBWA\Media Arts Lab. That background sharpened my ability to combine judgment with narrative and visual precision to a very high standard.
 
-My approach is shaped by modernism, typographic discipline, simplicity, form, function, grid systems and geometry. The Swiss school remains a strong influence on how I think about visual systems and product design.
-
-I’m currently based in ~~the UK, Sweden, Netherlands, Singapore, Italy, Portugal~~, Brazil, and I do enjoy travelling and getting to know different cultures.
-
-I love the sea, music, food, art galleries, book shops, audio and visual gear and having a good time with friends and family.
+I care about reducing noise, preserving technical truth, and building products that feel credible, clear and useful in the real world.
 
 ## WORK
 
 - Private case pages are served from a separate protected repository in production at `https://cases.comym.co/`.
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
-  Live Kedro Viz demo for exploring pipelines, lineage and modular workflows.
+  Interactive demo for exploring pipelines, lineage and modular architecture in Kedro Viz.
 - [Kedro](https://cases.comym.co/kedro/)
-  Kedro is a toolbox for production-ready data pipelines.
+  Designing clarity for complex data workflows used by data scientists and engineers.
 - [Performance AI](https://cases.comym.co/performance-ai/)
-  Model performance and experiment tracking tool.
+  Experiment tracking and model performance tooling for machine-learning teams.
 - [Rapid Diagnostic Reports](https://cases.comym.co/rapid-diagnostic-reports/)
-  LLM driven tool for Private Equity diagnostics.
+  LLM-native workflow for turning fragmented diligence work into structured insight.
 
 ## Selected Clients and Users
 

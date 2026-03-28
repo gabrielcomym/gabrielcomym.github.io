@@ -538,7 +538,7 @@ body.is-about-transitioning .sheet__actions .icon-tooltip {
 }
 
 .about-layer__content p {
-  margin: 0 0 18px;
+  margin: 0 0 36px;
   max-width: calc(33ch + 80px);
   font-size: 40px;
   line-height: 1.16;
