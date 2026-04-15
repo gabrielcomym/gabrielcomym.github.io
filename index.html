@@ -98,7 +98,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23000000'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' fill='%23c9d1d9' font-family='IBM Plex Mono, monospace' font-size='24'%3ECO%3C/text%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260324a" />
+    <link rel="stylesheet" href="./styles.css?v=20260415h" />
   </head>
   <body class="is-booting">
     <div class="boot-screen" data-boot-screen aria-hidden="true">
@@ -187,7 +187,7 @@
                 </button>
                 <div class="icon-tooltip" aria-hidden="true">Download CV</div>
               </div>
-              <div class="icon-control">
+              <div class="icon-control icon-control--avatar">
                 <button
                   class="sheet__avatar"
                   type="button"
@@ -202,7 +202,7 @@
                     />
                   </span>
                 </button>
-                <div class="icon-tooltip" aria-hidden="true">About</div>
+                <div class="icon-tooltip icon-tooltip--align-right" aria-hidden="true">About</div>
               </div>
             </div>
           </div>
@@ -221,7 +221,7 @@
                 target="_blank"
                 rel="noreferrer"
               >KEDRO / LIVE DEMO</a>
-              <p class="main-link__description">Interactive demo for exploring pipelines, lineage and modular architecture in Kedro Viz.</p>
+              <p class="main-link__description">Interactive Kedro Viz demo for exploring pipelines, lineage, and modular workflows in a clearer, more visual way.</p>
               <span class="main-link__url">https://demo.kedro.org/</span>
             </li>
             <li
@@ -234,7 +234,7 @@
                 href="https://cases.comym.co/kedro/"
                 data-private-case-path="/kedro/"
               >KEDRO</a>
-              <p class="main-link__description">Designing clarity for complex data workflows used by data scientists and engineers.</p>
+              <p class="main-link__description">Designing Kedro Viz to help data scientists and engineers follow workflow structure, navigate lineage, and understand modular pipelines more clearly.</p>
               <span class="main-link__url">/kedro/</span>
             </li>
             <li
@@ -247,7 +247,7 @@
                 href="https://cases.comym.co/rapid-diagnostic-reports/"
                 data-private-case-path="/rapid-diagnostic-reports/"
               >RAPID DIAGNOSTIC REPORTS</a>
-              <p class="main-link__description">LLM-native workflow for turning fragmented diligence work into structured insight.</p>
+              <p class="main-link__description">Turning an early AI-driven diagnostic tool into a clearer product experience for research, synthesis, and reporting workflows.</p>
               <span class="main-link__url">/rapid-diagnostic-reports/</span>
             </li>
             <li
@@ -260,11 +260,70 @@
                 href="https://cases.comym.co/performance-ai/"
                 data-private-case-path="/performance-ai/"
               >PERFORMANCE AI</a>
-              <p class="main-link__description">Experiment tracking and model performance tooling for machine-learning teams.</p>
+              <p class="main-link__description">Shaping an analytics product for tracking model performance, comparing experiments, and supporting better decisions over time.</p>
               <span class="main-link__url">/performance-ai/</span>
             </li>
           </ul>
         </section>
+        <div class="mobile-action-row" aria-label="Document actions">
+          <div class="icon-control">
+            <a
+              class="icon-button"
+              href="https://github.com/gabrielcomym"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Gabriel Comym on GitHub"
+            >
+              <img src="./github-invertocat-white.svg" alt="" aria-hidden="true" />
+            </a>
+            <div class="icon-tooltip icon-tooltip--align-left" aria-hidden="true">Github</div>
+          </div>
+          <div class="icon-control">
+            <a
+              class="icon-button"
+              href="https://medium.com/@gabrielcomym"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Gabriel Comym on Medium"
+            >
+              <img src="./medium-monogram-white.svg" alt="" aria-hidden="true" />
+            </a>
+            <div class="icon-tooltip" aria-hidden="true">Medium</div>
+          </div>
+          <div class="icon-control">
+            <a
+              class="icon-button"
+              href="https://www.linkedin.com/in/gabrielcomym/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Gabriel Comym on LinkedIn"
+            >
+              <img src="./linkedin-monogram-white.svg" alt="" aria-hidden="true" />
+            </a>
+            <div class="icon-tooltip" aria-hidden="true">LinkedIn</div>
+          </div>
+          <div class="icon-control">
+            <a
+              class="icon-button"
+              href="mailto:gabrielcomym@gmail.com"
+              aria-label="Email Gabriel Comym"
+            >
+              <i data-lucide="mail" aria-hidden="true"></i>
+            </a>
+            <div class="icon-tooltip" aria-hidden="true">Contact</div>
+          </div>
+          <div class="icon-control">
+            <button
+              class="icon-button"
+              type="button"
+              data-mobile-action-download
+              aria-label="Download page content as markdown"
+            >
+              <i data-lucide="download" aria-hidden="true"></i>
+            </button>
+            <div class="icon-tooltip" aria-hidden="true">Download CV</div>
+          </div>
+        </div>
         <div class="work-hover-preview" data-work-preview aria-hidden="true">
           <div class="work-hover-preview__frame">
             <img
@@ -275,13 +334,6 @@
             />
           </div>
         </div>
-        <footer class="terminal-footer" aria-hidden="true">
-          <p class="terminal-footer__line" data-terminal-login></p>
-          <p class="terminal-footer__line terminal-footer__prompt">
-            gabrielcomym@Gabriels-MacBook-Pro ~ %
-            <span class="terminal-footer__cursor"></span>
-          </p>
-        </footer>
       </article>
       </div>
       <section class="end-video" aria-label="Featured motion reel"></section>
@@ -319,31 +371,26 @@
             alt="Gabriel Comym portrait"
           />
           <p>
-            I help organisations and technical teams identify where AI can create meaningful value
-            in complex workflows. My work turns ambiguity into clear product direction and connects
-            technical capability to decisions people can act on.
+            I help organisations and technical teams determine where AI creates real value in
+            complex systems and workflows.
           </p>
           <p>
-            I work across opportunity framing, concept development and hands-on product direction.
-            In practice, that means understanding business context, spotting where friction really
-            lives, and shaping products that make complex systems clearer, more useful and easier
-            to work with.
+            As a hands-on design director, I turn ambiguity into clear product direction, better
+            decisions, and systems people can trust, working at the intersection of AI, product
+            strategy, and advanced analytics.
           </p>
           <p>
-            Over the past 20 years, I’ve worked across product, systems and creative
-            environments. More recently, as Principal Designer at McKinsey and WovenLight, I
-            worked on AI products and technical tools for advanced analytics, machine learning and
-            private equity, where the challenge was improving decision quality and making
-            sophisticated workflows easier to navigate.
+            I’ve led design for AI products across machine learning, advanced analytics, and
+            private equity, most recently as Principal Designer at McKinsey &amp; Company and
+            WovenLight.
           </p>
           <p>
-            I’ve also worked as Art Director and Creative with teams at Google, and as Lead
-            Designer for Apple at TBWA\Media Arts Lab. That background sharpened my ability to
-            combine judgment with narrative and visual precision to a very high standard.
+            Earlier, as an art director and lead designer, I worked within creative teams at
+            Google and on Apple at TBWA\Media Arts Lab.
           </p>
           <p>
-            I care about reducing noise, preserving technical truth, and building products that
-            feel credible, clear and useful in the real world.
+            Products I’ve worked on are used by teams at NASA, Apple, Google, Microsoft, HSBC,
+            Santander, Barclays, and others.
           </p>
 
           <section class="about-section">
@@ -500,28 +547,30 @@
 
 ## Overview
 
-I help organisations and technical teams identify where AI can create meaningful value in complex workflows.
+I help organisations and technical teams determine where AI creates real value in complex systems and workflows.
 
-My work turns ambiguity into clear product direction and connects technical capability to decisions people can act on.
+As a hands-on design director, I turn ambiguity into clear product direction, better decisions, and systems people can trust, working at the intersection of AI, product strategy, and advanced analytics.
 
-I work across opportunity framing, concept development and hands-on product direction. In practice, that means understanding business context, spotting where friction really lives, and shaping products that make complex systems clearer, more useful and easier to work with.
+I’ve led design for AI products across machine learning, advanced analytics, and private equity, most recently as Principal Designer at McKinsey & Company and WovenLight.
 
-Over the past 20 years, I’ve worked across product, systems and creative environments. More recently, as Principal Designer at McKinsey and WovenLight, I worked on AI products and technical tools for advanced analytics, machine learning and private equity, where the challenge was improving decision quality and making sophisticated workflows easier to navigate.
+Earlier, as an art director and lead designer, I worked within creative teams at Google and on Apple at TBWA\Media Arts Lab.
 
-I’ve also worked as Art Director and Creative with teams at Google, and as Lead Designer for Apple at TBWA\Media Arts Lab. That background sharpened my ability to combine judgment with narrative and visual precision to a very high standard.
-
-I care about reducing noise, preserving technical truth, and building products that feel credible, clear and useful in the real world.
+Products I’ve worked on are used by teams at NASA, Apple, Google, Microsoft, HSBC, Santander, Barclays, and others.
 
 ## WORK
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
-  Interactive demo for exploring pipelines, lineage and modular architecture in Kedro Viz.
+  Interactive Kedro Viz demo for exploring pipelines, lineage, and modular workflows in a
+  clearer, more visual way.
 - [Kedro](https://cases.comym.co/kedro/)
-  Designing clarity for complex data workflows used by data scientists and engineers.
+  Designing Kedro Viz to help data scientists and engineers follow complex workflow structure,
+  navigate lineage, and understand modular pipelines more clearly.
 - [Performance AI](https://cases.comym.co/performance-ai/)
-  Experiment tracking and model performance tooling for machine-learning teams.
+  Shaping an analytics product for tracking model performance, comparing experiments, and helping
+  teams make better decisions as models evolved over time.
 - [Rapid Diagnostic Reports](https://cases.comym.co/rapid-diagnostic-reports/)
-  LLM-native workflow for turning fragmented diligence work into structured insight.
+  Turning an early AI-driven diagnostic tool into a clearer product experience for research,
+  synthesis, and reporting workflows in private equity.
 
 ## Selected Clients and Users
 
@@ -771,6 +820,6 @@ Carlos Ferrão - https://www.linkedin.com/in/carlos-ferrao/
 Senior Program Manager at Google
     </textarea>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="./script.js?v=20260320b"></script>
+    <script src="./script.js?v=20260415h"></script>
   </body>
 </html>

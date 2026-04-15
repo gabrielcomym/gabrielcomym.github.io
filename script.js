@@ -2,7 +2,6 @@ const markdownSourceNode = document.querySelector("[data-markdown-source]");
 const markdownSource = markdownSourceNode?.value ?? "";
 
 const downloadButton = document.querySelector("[data-download-markdown]");
-const terminalLoginLines = Array.from(document.querySelectorAll("[data-terminal-login]"));
 const externalLinkUrls = Array.from(document.querySelectorAll(".main-link__url"));
 const headerTooltipTriggers = Array.from(
   document.querySelectorAll(".sheet__actions button, .sheet__actions a")
@@ -16,6 +15,7 @@ const aboutOpenButton = document.querySelector("[data-about-open]");
 const aboutCloseButton = document.querySelector("[data-about-close]");
 const aboutContent = document.querySelector("[data-about-content]");
 const aboutCursor = document.querySelector("[data-about-cursor]");
+const mobileActionDownloadButton = document.querySelector("[data-mobile-action-download]");
 const workPreview = document.querySelector("[data-work-preview]");
 const workPreviewImage = document.querySelector("[data-work-preview-image]");
 const workPreviewTriggers = Array.from(document.querySelectorAll(".main-link[data-preview-src]"));
@@ -189,26 +189,6 @@ const triggerDownloadFeedback = (isError = false) => {
     downloadButton.classList.remove("is-active", "is-success");
     setButtonIcon(downloadButton, downloadButton.dataset.originalIcon || "download");
   }, DOWNLOAD_FEEDBACK_DURATION);
-};
-
-const weekdayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-const formatTerminalLoginLine = (date) => {
-  const weekday = weekdayNames[date.getDay()];
-  const month = monthNames[date.getMonth()];
-  const day = date.getDate();
-  const hours = String(date.getHours()).padStart(2, "0");
-  const minutes = String(date.getMinutes()).padStart(2, "0");
-  const seconds = String(date.getSeconds()).padStart(2, "0");
-  return `Last login: ${weekday} ${month} ${day} ${hours}:${minutes}:${seconds} on ttys014`;
-};
-
-const updateTerminalLoginLines = () => {
-  const label = formatTerminalLoginLine(new Date());
-  terminalLoginLines.forEach((node) => {
-    node.textContent = label;
-  });
 };
 
 const truncateExternalLinkUrls = () => {
@@ -762,6 +742,10 @@ downloadButton?.addEventListener("click", () => {
   }
 });
 
+mobileActionDownloadButton?.addEventListener("click", () => {
+  downloadButton?.click();
+});
+
 aboutOpenButton?.addEventListener("click", (event) => {
   updateLastPointerPosition(event.clientX, event.clientY);
   openAboutLayer();
@@ -784,14 +768,12 @@ bindWorkPreview();
 bindMainLinkNavigation();
 syncPrivateCaseLinks();
 truncateExternalLinkUrls();
-updateTerminalLoginLines();
 syncWorkPreviewSize();
 resetPageScrollToTop();
 if (shouldPlayBoot) {
   renderBootSnippets();
 }
 
-window.setInterval(updateTerminalLoginLines, 1000);
 window.addEventListener("blur", hideWorkPreview);
 window.addEventListener("focus", dismissHeaderTooltips);
 window.addEventListener("resize", hideWorkPreview);

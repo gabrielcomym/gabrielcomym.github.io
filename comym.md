@@ -8,30 +8,32 @@
 
 ## Overview
 
-I help organisations and technical teams identify where AI can create meaningful value in complex workflows.
+I help organisations and technical teams determine where AI creates real value in complex systems and workflows.
 
-My work turns ambiguity into clear product direction and connects technical capability to decisions people can act on.
+As a hands-on design director, I turn ambiguity into clear product direction, better decisions, and systems people can trust, working at the intersection of AI, product strategy, and advanced analytics.
 
-I work across opportunity framing, concept development and hands-on product direction. In practice, that means understanding business context, spotting where friction really lives, and shaping products that make complex systems clearer, more useful and easier to work with.
+I’ve led design for AI products across machine learning, advanced analytics, and private equity, most recently as Principal Designer at McKinsey & Company and WovenLight.
 
-Over the past 20 years, I’ve worked across product, systems and creative environments. More recently, as Principal Designer at McKinsey and WovenLight, I worked on AI products and technical tools for advanced analytics, machine learning and private equity, where the challenge was improving decision quality and making sophisticated workflows easier to navigate.
+Earlier, as an art director and lead designer, I worked within creative teams at Google and on Apple at TBWA\Media Arts Lab.
 
-I’ve also worked as Art Director and Creative with teams at Google, and as Lead Designer for Apple at TBWA\Media Arts Lab. That background sharpened my ability to combine judgment with narrative and visual precision to a very high standard.
-
-I care about reducing noise, preserving technical truth, and building products that feel credible, clear and useful in the real world.
+Products I’ve worked on are used by teams at NASA, Apple, Google, Microsoft, HSBC, Santander, Barclays, and others.
 
 ## WORK
 
 - Private case pages are served from a separate protected repository in production at `https://cases.comym.co/`.
 
 - [Kedro / Live Demo](https://demo.kedro.org/)
-  Interactive demo for exploring pipelines, lineage and modular architecture in Kedro Viz.
+  Interactive Kedro Viz demo for exploring pipelines, lineage, and modular workflows in a
+  clearer, more visual way.
 - [Kedro](https://cases.comym.co/kedro/)
-  Designing clarity for complex data workflows used by data scientists and engineers.
+  Designing Kedro Viz to help data scientists and engineers follow complex workflow structure,
+  navigate lineage, and understand modular pipelines more clearly.
 - [Performance AI](https://cases.comym.co/performance-ai/)
-  Experiment tracking and model performance tooling for machine-learning teams.
+  Shaping an analytics product for tracking model performance, comparing experiments, and helping
+  teams make better decisions as models evolved over time.
 - [Rapid Diagnostic Reports](https://cases.comym.co/rapid-diagnostic-reports/)
-  LLM-native workflow for turning fragmented diligence work into structured insight.
+  Turning an early AI-driven diagnostic tool into a clearer product experience for research,
+  synthesis, and reporting workflows in private equity.
 
 ## Selected Clients and Users
 
