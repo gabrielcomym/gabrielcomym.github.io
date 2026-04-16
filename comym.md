@@ -100,17 +100,21 @@ Products I’ve worked on are used by teams at NASA, Apple, Google, Microsoft, H
 
 ## Experience
 
+### Independent Contractor
+
+*Mar 2026 – Present*
+
 ### Design Director / Senior Product Design Manager — Work & Co. / Accenture Song
 
 *Jul 2025 – Feb 2026*
 
-Design leadership and hands-on product direction across healthcare, fintech and financial services engagements.
+Led hands-on product design direction across strategic client work for Pfizer, Stone, Bradesco, and Santander. Worked across product vision, storytelling, design leadership, and delivery.
 
 ### Principal Designer — WovenLight
 
 *Mar 2024 – May 2025*
 
-Working on highly complex LLM agentic interactions, process automation and user centred experiences for the Private Equity industry.
+Led product design for AI-driven tools in Private Equity, focusing on LLM and agentic workflows, research synthesis, and reporting experiences. Helped turn early technical and ambiguous concepts into clearer product direction and scalable user experiences for internal workflows and commercial conversations.
 
 ### Sabbatical
 
@@ -120,13 +124,13 @@ Working on highly complex LLM agentic interactions, process automation and user 
 
 *May 2018 – Apr 2023*
 
-Led design for AI/ML workflow tools for data scientists and engineers. Designed explainable AI interfaces, simplified complex data pipelines, and led end-to-end design processes. Kedro design lead, contributing to its growth to 10K+ GitHub stars and recognition by Fast Company and AI Awards.
+Led design for AI and machine learning products for data scientists, engineers, and analytics teams. Worked on workflow tools, explainable AI interfaces, model performance tracking, and systems for understanding complex data pipelines. As Kedro design lead, helped shape Kedro Viz into a clearer experience for exploring lineage, modular pipelines, and technical workflows, contributing to the product’s growth and recognition including Fast Company Innovation by Design and AI Awards.
 
 ### Designer — Various
 
 *Mar 2004 – May 2018*
 
-Interactive art direction, creative and product design for VR, web, and native applications. Worked with agencies and brands including Apple, Google, Allianz, Aston Martin, Ballantine’s, Barclays, BBC, Buzzbike, Capital FM, Claro, Diageo, Emirates, Farm, GE, HSBC, John Frieda, KFC, Kraft Foods, McDonald’s, Meraas, Mercedes-Benz, Microsoft, NatWest, New Look, Opel, Petrobras, RBS, Red Bull, Reserva, Samsung, Sony, Sony Music, Toyota, Vivo, Volvo, Warner, Warner Music, Weetabix, Yell and others.
+Worked across interaction design, product design, and art direction for web, native, and immersive experiences. Collaborated with agencies, in-house teams, and global brands including Apple, Google, Allianz, Aston Martin, Barclays, BBC, Emirates, GE, HSBC, McDonald’s, Mercedes-Benz, Microsoft, NatWest, RBS, Red Bull, Samsung, Sony, Toyota, Vivo, Volvo, Warner Music, and others.
 
 ## Awards and Recognition
 

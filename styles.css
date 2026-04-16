@@ -162,7 +162,8 @@ body.is-about-transitioning {
 }
 
 .page__content .sheet__header,
-.page__content .block {
+.page__content .block,
+.page__content .mobile-action-row {
   opacity: 1;
   transform: none;
   transition:
@@ -172,7 +173,8 @@ body.is-about-transitioning {
 }
 
 body.is-booting .page__content .sheet__header,
-body.is-booting .page__content .block {
+body.is-booting .page__content .block,
+body.is-booting .page__content .mobile-action-row {
   opacity: 0;
   transform: translateY(14px);
 }
@@ -267,10 +269,6 @@ a:hover {
   justify-content: flex-end;
 }
 
-.sheet__action-row .icon-control:not(.icon-control--avatar) {
-  display: none;
-}
-
 .sheet__avatar {
   display: flex;
   align-items: center;
@@ -313,7 +311,7 @@ a:hover {
 }
 
 .sheet__action-row .icon-control:last-child {
-  margin-left: 0;
+  margin-left: 8px;
 }
 
 .icon-tooltip {
@@ -441,7 +439,7 @@ body.is-about-transitioning .sheet__actions .icon-tooltip--align-right {
 
 .mobile-action-row {
   position: relative;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -1233,6 +1231,18 @@ body.is-about-open .about-layer__back {
 @media (max-width: 1024px) {
   .block--work-hero {
     padding-bottom: 12px;
+  }
+
+  .sheet__action-row .icon-control:not(.icon-control--avatar) {
+    display: none;
+  }
+
+  .sheet__action-row .icon-control:last-child {
+    margin-left: 0;
+  }
+
+  .mobile-action-row {
+    display: flex;
   }
 }
 

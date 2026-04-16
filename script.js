@@ -6,6 +6,7 @@ const externalLinkUrls = Array.from(document.querySelectorAll(".main-link__url")
 const headerTooltipTriggers = Array.from(
   document.querySelectorAll(".sheet__actions button, .sheet__actions a")
 );
+const headerActionRows = Array.from(document.querySelectorAll(".sheet__action-row"));
 const testimonialsSection = document.querySelector("[data-testimonials]");
 const testimonialsBody = document.querySelector("[data-testimonials-body]");
 const bootScreen = document.querySelector("[data-boot-screen]");
@@ -210,6 +211,31 @@ const dismissHeaderTooltips = () => {
     if (trigger instanceof HTMLElement) {
       trigger.blur();
     }
+  });
+};
+
+const syncHeaderTooltipAlignment = () => {
+  headerActionRows.forEach((row) => {
+    const controls = Array.from(row.querySelectorAll(".icon-control"));
+    controls.forEach((control) => {
+      control.querySelector(".icon-tooltip")?.classList.remove("icon-tooltip--align-right");
+    });
+
+    const visibleControls = controls.filter((control) => {
+      if (!(control instanceof HTMLElement)) return false;
+      const style = window.getComputedStyle(control);
+      return style.display !== "none" && style.visibility !== "hidden";
+    });
+
+    const rightmostControl = visibleControls.reduce((currentRightmost, control) => {
+      if (!(control instanceof HTMLElement)) return currentRightmost;
+      if (!(currentRightmost instanceof HTMLElement)) return control;
+      return control.getBoundingClientRect().right > currentRightmost.getBoundingClientRect().right
+        ? control
+        : currentRightmost;
+    }, null);
+
+    rightmostControl?.querySelector(".icon-tooltip")?.classList.add("icon-tooltip--align-right");
   });
 };
 
@@ -769,6 +795,7 @@ bindMainLinkNavigation();
 syncPrivateCaseLinks();
 truncateExternalLinkUrls();
 syncWorkPreviewSize();
+syncHeaderTooltipAlignment();
 resetPageScrollToTop();
 if (shouldPlayBoot) {
   renderBootSnippets();
@@ -778,6 +805,7 @@ window.addEventListener("blur", hideWorkPreview);
 window.addEventListener("focus", dismissHeaderTooltips);
 window.addEventListener("resize", hideWorkPreview);
 window.addEventListener("resize", () => {
+  syncHeaderTooltipAlignment();
   syncWorkPreviewSize();
   updateLastPointerPosition(lastPointerPosition.x, lastPointerPosition.y);
   aboutCursorMotion.currentX = lastPointerPosition.x;
